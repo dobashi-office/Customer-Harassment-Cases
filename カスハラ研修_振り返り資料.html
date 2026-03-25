@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カスタマーハラスメント対策 研修振り返り資料</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:    #2c5f8a;
+      --primary-lt: #e8f1f8;
+      --accent:     #c0392b;
+      --accent-lt:  #fdf0ef;
+      --ok:         #1e7e4a;
+      --ok-lt:      #eaf6ee;
+      --warn:       #d4860a;
+      --warn-lt:    #fef8ec;
+      --gray-dark:  #2d3748;
+      --gray-mid:   #4a5568;
+      --gray-light: #e2e8f0;
+      --bg:         #f7f9fc;
+      --white:      #ffffff;
+      --border:     #cbd5e0;
+      --radius:     10px;
+      --shadow:     0 2px 10px rgba(0,0,0,.07);
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+      background: var(--bg);
+      color: var(--gray-dark);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #1a3f60 0%, #2c5f8a 60%, #3b7db5 100%);
+      color: #fff;
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 20px;
+      font-size: 12px;
+      letter-spacing: .1em;
+      padding: 4px 16px;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(20px, 4vw, 30px);
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 14px;
+      opacity: .85;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ===== TOC ===== */
+    .toc-wrap {
+      max-width: 860px;
+      margin: 32px auto 0;
+      padding: 0 16px;
+    }
+    .toc {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px 28px;
+    }
+    .toc h2 {
+      font-size: 13px;
+      letter-spacing: .1em;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .toc ol {
+      padding-left: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+    @media (max-width: 560px) { .toc ol { grid-template-columns: 1fr; } }
+    .toc li a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .toc li a:hover { text-decoration: underline; }
+
+    /* ===== MAIN LAYOUT ===== */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 16px 64px;
+    }
+
+    /* ===== SECTION ===== */
+    .section {
+      margin-top: 48px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .section-num {
+      background: var(--primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: clamp(17px, 3vw, 20px);
+      font-weight: 700;
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 4px;
+      flex: 1;
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 26px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-title .icon {
+      font-size: 18px;
+    }
+
+    /* ===== GRID ===== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 620px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    /* ===== CALLOUT ===== */
+    .callout {
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-bottom: 16px;
+      border-left: 5px solid;
+    }
+    .callout.info   { background: var(--primary-lt); border-color: var(--primary); }
+    .callout.warn   { background: var(--warn-lt);    border-color: var(--warn); }
+    .callout.danger { background: var(--accent-lt);  border-color: var(--accent); }
+    .callout.ok     { background: var(--ok-lt);      border-color: var(--ok); }
+    .callout-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .callout.info   .callout-title { color: var(--primary); }
+    .callout.warn   .callout-title { color: var(--warn); }
+    .callout.danger .callout-title { color: var(--accent); }
+    .callout.ok     .callout-title { color: var(--ok); }
+
+    /* ===== LIST ===== */
+    ul.check, ul.cross, ul.dot {
+      list-style: none;
+      padding: 0;
+    }
+    ul.check li, ul.cross li, ul.dot li {
+      padding: 4px 0 4px 26px;
+      position: relative;
+      font-size: 14px;
+    }
+    ul.check li::before { content: '✓'; color: var(--ok);   position: absolute; left: 0; font-weight: 700; }
+    ul.cross li::before { content: '✕'; color: var(--accent); position: absolute; left: 0; font-weight: 700; }
+    ul.dot li::before   { content: '●'; color: var(--primary); position: absolute; left: 0; font-size: 8px; top: 9px; }
+
+    /* ===== TABLE ===== */
+    .table-wrap { overflow-x: auto; margin-bottom: 16px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    thead th {
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 700;
+    }
+    tbody tr:nth-child(even) { background: var(--primary-lt); }
+    tbody td { padding: 11px 16px; border-bottom: 1px solid var(--gray-light); vertical-align: top; }
+
+    /* ===== STEP ===== */
+    .steps { counter-reset: step; }
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+    .step-num {
+      counter-increment: step;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-body { flex: 1; }
+    .step-body strong { display: block; font-size: 14px; margin-bottom: 3px; }
+    .step-body p, .step-body span { font-size: 13.5px; color: var(--gray-mid); }
+
+    /* ===== BADGE CHIPS ===== */
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .chip {
+      background: var(--primary-lt);
+      color: var(--primary);
+      border: 1px solid #b3cfe8;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 4px 12px;
+    }
+
+    /* ===== HIGHLIGHT BOX ===== */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--primary-lt), #daeaf8);
+      border: 1px solid #b3cfe8;
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .highlight-box .big-text {
+      font-size: clamp(16px, 3vw, 20px);
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.5;
+    }
+
+    /* ===== DIVIDER ===== */
+    .divider { border: none; border-top: 1px solid var(--gray-light); margin: 20px 0; }
+
+    /* ===== COMPARE CARD ===== */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+    @media (max-width: 540px) { .compare { grid-template-columns: 1fr; } }
+    .compare-col { padding: 20px; }
+    .compare-col.left  { background: var(--ok-lt); border-right: 1px solid var(--gray-light); }
+    .compare-col.right { background: var(--accent-lt); }
+    .compare-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+    .compare-col.left  h4 { color: var(--ok); }
+    .compare-col.right h4 { color: var(--accent); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      padding: 24px 16px 40px;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    /* ===== QUOTE ===== */
+    .speech {
+      background: var(--primary-lt);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      font-size: 13.5px;
+      color: var(--gray-mid);
+      margin: 8px 0;
+      font-style: italic;
+    }
+
+    /* ===== SCROLL TOP ===== */
+    .back-top {
+      display: block;
+      text-align: right;
+      font-size: 12px;
+      color: var(--primary);
+      text-decoration: none;
+      margin-top: 12px;
+    }
+    .back-top:hover { text-decoration: underline; }
+
+    /* print */
+    @media print {
+      .hero { background: #2c5f8a !important; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="badge">研修振り返り資料</div>
+  <h1>カスタマーハラスメント対策<br>ポイント整理ガイド</h1>
+  <p>研修内容を現場で活かすための振り返り資料です。迷ったときにいつでも見返してください。</p>
+</div>
+
+<!-- TOC -->
+<div class="toc-wrap">
+  <div class="toc">
+    <h2>目次</h2>
+    <ol>
+      <li><a href="#sec1">カスタマーハラスメントの基本理解</a></li>
+      <li><a href="#sec2">判断のポイント</a></li>
+      <li><a href="#sec3">現場対応の基本</a></li>
+      <li><a href="#sec4">やってはいけない対応</a></li>
+      <li><a href="#sec5">会社として必要な体制</a></li>
+      <li><a href="#sec6">実務ポイントまとめ</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ========== SECTION 1 ========== -->
+  <div class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">カスタマーハラスメントの基本理解</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">📌 カスハラの定義（3つの要素すべてを満たすもの）</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">①</div><div class="step-body"><strong>顧客等による言動であること</strong><span>消費者だけでなく、取引先・施設利用者・その家族・近隣住民なども対象になります</span></div></div>
+        <div class="step"><div class="step-num">②</div><div class="step-body"><strong>社会通念上許容される範囲を超えていること</strong><span>業務の性質や契約内容に照らして、常識的に受け入れられる範囲を逸脱している</span></div></div>
+        <div class="step"><div class="step-num">③</div><div class="step-body"><strong>労働者の就業環境が害されること</strong><span>現場の従業員が安心して働けない状態になっている</span></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🗺️</span>「顧客等」「職場」の範囲は広い</div>
+      <div class="grid-2">
+        <div>
+          <p style="font-weight:700; color:var(--primary); margin-bottom:8px;">「顧客等」に含まれるもの</p>
+          <ul class="dot">
+            <li>商品・サービスを購入した消費者</li>
+            <li>取引先・業務上関わる相手</li>
+            <li>施設の利用者・その家族</li>
+            <li>近隣住民（苦情・抗議を含む）</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-weight:700; color:var(--primary); margin-bottom:8px;">「職場」に含まれる場面</p>
+          <ul class="dot">
+            <li>店舗・施設内</li>
+            <li>電話・メール・SNS</li>
+            <li>訪問先・移動中</li>
+            <li>会社外での業務対応</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout ok" style="margin-bottom:0">
+        <div class="callout-title">✔ ポイント</div>
+        業務として対応している限り、相手は「顧客等」であり、その場所が「職場」になります。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">⚖️</span>正当なクレームとカスハラの違い</div>
+      <div class="compare">
+        <div class="compare-col left">
+          <h4>✅ 正当なクレーム</h4>
+          <ul class="dot">
+            <li>商品・サービスへの不満</li>
+            <li>改善を求める合理的な要求</li>
+            <li>業務改善につながる貴重な声</li>
+            <li>要求内容・手段ともに常識的</li>
+          </ul>
+        </div>
+        <div class="compare-col right">
+          <h4>⚠️ カスタマーハラスメント</h4>
+          <ul class="dot">
+            <li>過剰・不当な要求</li>
+            <li>人格否定・威圧・脅迫的言動</li>
+            <li>長時間・繰り返しの執拗な要求</li>
+            <li>内容は正当でも手段が不相当</li>
+          </ul>
+        </div>
+      </div>
+      <p style="font-size:13px; color:var(--gray-mid);">※ クレームは業務改善のヒントにもなります。最初から「カスハラだ」と決めつけず、内容と手段を分けて見ることが大切です。</p>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-title">💡 「お客様は神様です」という言葉について</div>
+      この言葉はもともと、歌手・三波春夫氏が<strong>サービス提供者の心構え</strong>として語ったものです。
+      受け取る側の「権利」として使われるようになったことがカスハラの背景にあります。
+      本来の意味とは全く異なります。
+    </div>
+
+    <a class="back-top" href="#top">▲ 目次に戻る</a>
+  </div>
+
+  <!-- ========== SECTION 2 ========== -->
+  <div class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">判断のポイント</div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="big-text">判断の基本は「内容（正当性）」×「手段・態様（相当性）」の2軸</div>
+      <p style="font-size:13px; margin-top:8px; color:var(--gray-mid);">感情ではなく、この2つの視点で事実として整理することが出発点です</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title"><span class="icon">📋</span>①　要求の内容（正当性）</div>
+        <ul class="dot">
+          <li>業務の性質・契約内容に照らして妥当か</li>
+          <li>社会通念上、受け入れられる範囲か</li>
+          <li>実現可能な要求か</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title"><span class="icon">🗣️</span>②　手段・態様（相当性）</div>
+        <ul class="dot">
+          <li>言い方・態度・威圧性</li>
+          <li>繰り返し・長時間・執拗さ</li>
+          <li>人格否定・脅迫的言動</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-bottom:16px"></div>
+
+    <div class="callout danger">
+      <div class="callout-title">⚠️ 重要：内容が正当でも手段が不相当ならカスハラになり得ます</div>
+      たとえ要求の中身が合理的であっても、怒鳴る・長時間拘束する・人格を否定するなどの手段をとった場合は、カスハラと判断されることがあります。
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🔍</span>判断するときの3つの前提</div>
+      <ul class="check">
+        <li>「○回以上電話があったらカスハラ」など、<strong>一律の基準では判断できません</strong></li>
+        <li>個別の状況・業種・契約内容によって判断は異なります</li>
+        <li>感情や印象ではなく、<strong>事実（日時・発言内容・回数・時間）</strong>を根拠にして整理します</li>
+      </ul>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>パターン</th>
+            <th>要求内容</th>
+            <th>手段・態様</th>
+            <th>判断の目安</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A</td>
+            <td>正当</td>
+            <td>穏やか</td>
+            <td style="color:var(--ok); font-weight:700;">正当なクレーム</td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>正当</td>
+            <td>威圧・長時間・繰り返し</td>
+            <td style="color:var(--warn); font-weight:700;">カスハラになり得る</td>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td>不当・過剰</td>
+            <td>穏やか</td>
+            <td style="color:var(--warn); font-weight:700;">カスハラになり得る</td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td>不当・過剰</td>
+            <td>威圧・脅迫・人格否定</td>
+            <td style="color:var(--accent); font-weight:700;">カスハラ（組織対応へ）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <a class="back-top" href="#top">▲ 目次に戻る</a>
+  </div>
+
+  <!-- ========== SECTION 3 ========== -->
+  <div class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">現場対応の基本</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">📌 現場の役割は「解決」ではなく「切り替え」です</div>
+      現場だけで完結させようとしないことが大原則。「個人対応」から「組織対応」へ移すことがゴールです。
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🔄</span>「人・場所・時間」を切り替える</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">人</div>
+          <div class="step-body">
+            <strong>担当者を替える</strong>
+            <p>同じ人が対応を続けると対立構造が固定化します。上司・管理者・同僚への引き継ぎを躊躇わずに行いましょう。</p>
+            <div class="speech">「私では判断できませんので、別の者に引き継がせていただきます。」</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">場所</div>
+          <div class="step-body">
+            <strong>対応場所・方法を替える</strong>
+            <p>対面→別室、電話→書面・メールへ切り替えることで、感情のエスカレートを抑えられます。</p>
+            <div class="speech">「この場での対応は難しいため、書面で整理して対応させてください。」</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">時間</div>
+          <div class="step-body">
+            <strong>即時対応をやめ、時間を置く</strong>
+            <p>感情が高ぶっている状態では説明が伝わりません。一度区切りをつけて冷静になるタイミングを作ります。</p>
+            <div class="speech">「本日はここまでとし、会社で整理したうえで改めてご連絡します。」</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🧠</span>加害者の心理を理解する（感情的になっている理由）</div>
+      <p style="font-size:13.5px; color:var(--gray-mid); margin-bottom:12px;">カスハラ行為者の多くは、純粋な悪意ではなく以下の心理的な状態になっています。</p>
+      <div class="grid-2">
+        <div>
+          <ul class="dot">
+            <li><strong>歪んだ正義感</strong>：「自分は正しいことをしている」という思い込み</li>
+            <li><strong>特権意識・承認欲求</strong>：「客は特別扱いされるべき」という価値観</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="dot">
+            <li><strong>ストレスのはけ口</strong>：反撃しない相手を攻撃対象にする</li>
+            <li><strong>引き下がれない心理</strong>：途中でやり過ぎと感じても後に引けない</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout warn" style="margin-bottom:0; margin-top:12px;">
+        <div class="callout-title">💡 だから「説得・正論・感情的な応酬」は逆効果</div>
+        相手が一時的に理性を失っている状態のとき、正論で押し返すことはむしろ火に油を注ぎます。
+        まず「人・場所・時間」を切り替え、感情の土俵から降りることが優先です。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">⚡</span>組織対応へ切り替えるタイミングの目安</div>
+      <p style="font-size:13px; color:var(--gray-mid); margin-bottom:10px;">※ 数値は会社・業種により調整してください。「現場が立ち止まる合図」を作ることが目的です。</p>
+      <ul class="dot">
+        <li>同一内容の電話・要求が <strong>3回以上</strong> 続く</li>
+        <li>対応時間が <strong>30分以上</strong> に及ぶ</li>
+        <li><strong>大声・威圧・人格否定的な発言</strong>が出た</li>
+        <li>同じ要求を繰り返し、<strong>説明をまったく受け入れない</strong></li>
+        <li>一人での対応に<strong>限界を感じた</strong>とき</li>
+      </ul>
+    </div>
+
+    <a class="back-top" href="#top">▲ 目次に戻る</a>
+  </div>
+
+  <!-- ========== SECTION 4 ========== -->
+  <div class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">やってはいけない対応（禁忌対応）</div>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-title">⛔ カスハラ対応の唯一解はないが、禁忌（タブー）は共通してあります</div>
+      以下の対応は状況をさらに悪化させ、法的リスクや既成事実化につながります。絶対に避けてください。
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🚫</span>現場で「言ってはいけない」言葉</div>
+      <ul class="cross">
+        <li>「あなたの行為はカスタマーハラスメントです」<br><span style="font-size:12.5px; color:var(--gray-mid);">→ 現場でのカスハラ認定は極めて危険。相手を追い込み攻撃性を高めます</span></li>
+        <li>「警察を呼びます」（その場での宣言）<br><span style="font-size:12.5px; color:var(--gray-mid);">→ 脅迫と受け取られたり、さらなる対立を招く可能性があります</span></li>
+        <li>「じゃあ、いくらなら納得しますか」<br><span style="font-size:12.5px; color:var(--gray-mid);">→ 金銭要求を誘発し、問題を大きくします</span></li>
+        <li>「落ち着いてください」「そこまで怒らなくても…」<br><span style="font-size:12.5px; color:var(--gray-mid);">→ 感情を否定されたと感じさせ、火に油を注ぎます</span></li>
+        <li>「ルールですので」「皆さんもお待ちいただいています」（感情が高ぶっている状態での正論）<br><span style="font-size:12.5px; color:var(--gray-mid);">→ 自分が軽視されたという認知を強化します</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🚫</span>現場で「やってはいけない」行動</div>
+      <ul class="cross">
+        <li>その場で<strong>謝罪・補償・返金・特別対応を約束する</strong><br><span style="font-size:12.5px; color:var(--gray-mid);">→ 過失を認めたと受け取られ、要求が「補償」「処分」へエスカレートします</span></li>
+        <li><strong>一人で抱え込んで</strong>対応を続ける<br><span style="font-size:12.5px; color:var(--gray-mid);">→ 判断ミスや精神的限界につながります。早めに上席へ相談してください</span></li>
+        <li>感情で言い返す・<strong>論破しようとする</strong><br><span style="font-size:12.5px; color:var(--gray-mid);">→ 対立構造を固定化し、問題を複雑にします</span></li>
+        <li><strong>無断録音・録画を乱発する</strong><br><span style="font-size:12.5px; color:var(--gray-mid);">→ 炎上・紛争化を招くリスクがあります。同意の有無を明確にして行いましょう</span></li>
+        <li>記録を残さずに対応を終わらせる<br><span style="font-size:12.5px; color:var(--gray-mid);">→ 事後の証明ができなくなります。必ず記録してください</span></li>
+      </ul>
+    </div>
+
+    <div class="callout ok">
+      <div class="callout-title">✔ 禁忌対応を避けるには</div>
+      感情的になる前に「人・場所・時間」を切り替え、組織対応へ移すことが最善の防止策です。
+      現場マニュアルの「切り替えの目安」に従って動いてください。
+    </div>
+
+    <a class="back-top" href="#top">▲ 目次に戻る</a>
+  </div>
+
+  <!-- ========== SECTION 5 ========== -->
+  <div class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">会社として必要な体制</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">📌 カスハラは「個人の問題」ではなく「会社が責任を持つ経営問題」</div>
+      顧客と契約しているのは会社です。現場が処分権限や最終判断権限を持てない以上、
+      会社として対応の仕組みを整えることが法的にも求められています。
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>区分</th>
+            <th>内容</th>
+            <th>リスク（未対応の場合）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--accent);">義務</strong></td>
+            <td>・方針・ルールの明確化<br>・体制整備（マニュアル作成・相談窓口設置）<br>・被害者への事後対応</td>
+            <td rowspan="2" style="vertical-align:middle;">安全配慮義務違反と判断される可能性<br>民事上の損害賠償・労災認定<br>企業評価・レピュテーションの低下</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--warn);">努力義務</strong></td>
+            <td>・従業員への研修実施<br>・自社従業員が他社でカスハラを行った場合の対応</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title"><span class="icon">📘</span>対応マニュアルの目的</div>
+        <p style="font-size:13.5px; color:var(--gray-mid); margin-bottom:10px;">マニュアルはカスハラを「断定する」ためではなく、</p>
+        <div class="callout ok" style="margin-bottom:0">
+          <div class="callout-title">✔ 通常対応から組織対応への切り替えのきっかけと初動を示すもの</div>
+        </div>
+        <ul class="dot" style="margin-top:12px;">
+          <li>切り替えのトリガー（目安）</li>
+          <li>その場での対応文言・行動</li>
+          <li>記録すべき内容・方法</li>
+          <li>エスカレーション先と責任者</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title"><span class="icon">📞</span>相談窓口の2つの役割</div>
+        <div style="margin-bottom:10px;">
+          <p style="font-weight:700; color:var(--primary); font-size:13.5px; margin-bottom:4px;">① リアルタイム型（今まさに困っている）</p>
+          <ul class="dot" style="font-size:13px;">
+            <li>担当：管理者・責任者</li>
+            <li>目的：通常対応か組織対応かを一緒に判断</li>
+            <li>重要：即時性・現場理解</li>
+          </ul>
+        </div>
+        <hr class="divider">
+        <div>
+          <p style="font-weight:700; color:var(--gray-mid); font-size:13.5px; margin-bottom:4px;">② 事後整理型（対応後の振り返り）</p>
+          <ul class="dot" style="font-size:13px;">
+            <li>担当：総務・管理部門・外部専門家</li>
+            <li>目的：法的評価・再発防止策の検討</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="margin-bottom:16px"></div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">📝</span>記録の残し方（証拠として残すポイント）</div>
+      <p style="font-size:13.5px; color:var(--gray-mid); margin-bottom:12px;">記録は会社を守るための客観資料です。警察・弁護士・裁判所への説明の出発点になります。</p>
+      <div class="grid-2">
+        <div>
+          <p style="font-weight:700; color:var(--primary); font-size:13.5px; margin-bottom:8px;">✅ 必ず記録すべき内容</p>
+          <ul class="check">
+            <li>日時・場所</li>
+            <li>対応者（誰が対応したか）</li>
+            <li>相手の言動（発言内容・態様）</li>
+            <li>こちらの対応内容</li>
+            <li>回数・継続時間（例：電話5回、合計45分）</li>
+            <li>対応を切り替えた事実と理由</li>
+            <li>録音・録画の有無・同意の有無</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-weight:700; color:var(--accent); font-size:13.5px; margin-bottom:8px;">❌ 記録に書かないこと</p>
+          <ul class="cross">
+            <li>主観・評価・感情<br><span style="font-size:12px; color:var(--gray-mid);">×「理不尽だった」→ ○「大声で同一要求を繰り返した」</span></li>
+            <li>推測<br><span style="font-size:12px; color:var(--gray-mid);">×「嫌がらせ目的と思われる」</span></li>
+            <li>曖昧な表現<br><span style="font-size:12px; color:var(--gray-mid);">×「長い間」→ ○「約45分間」</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-title">⚖️ 安全配慮義務について（参考：甲府市立小学校事件）</div>
+      教員が業務中に負傷したにもかかわらず、管理職が事実確認なしにその場を丸く収める目的で教員に謝罪を指示。
+      これが<strong>安全配慮義務違反</strong>と認定されました。<br><br>
+      「とりあえず謝らせる」はリスク対応ではありません。<strong>初動対応の質が、そのまま法的責任につながります。</strong>
+    </div>
+
+    <a class="back-top" href="#top">▲ 目次に戻る</a>
+  </div>
+
+  <!-- ========== SECTION 6 ========== -->
+  <div class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">実務ポイントまとめ</div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="big-text">迷ったら「一人で抱え込まず、まず相談」</div>
+      <p style="font-size:13px; margin-top:8px; color:var(--gray-mid);">現場の役割は解決することではなく、切り替えることです</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🎯</span>迷ったときにまずやること</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><strong>一人で判断・解決しようとしない</strong><p>「切り替えの目安（マニュアル）」に達していたら、すぐに上席・相談窓口へ連絡してください</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><strong>「人・場所・時間」を切り替える</strong><p>担当交代・書面対応へ移行・一度区切りをつける、いずれかをまず行います</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><strong>事実を記録する</strong><p>対応後はすぐに日時・内容・回数・時間・発言を書き留めます。主観や推測は入れません</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><strong>禁忌対応をしていないか確認する</strong><p>安易な約束・過度な謝罪・一人での長時間対応をしていないか振り返ります</p></div></div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>状況</th>
+            <th>対応レベル</th>
+            <th>やること</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>通常のクレーム・不満</td>
+            <td style="color:var(--ok); font-weight:700;">現場対応</td>
+            <td>説明・案内・謝罪（事実に基づく）。記録は念のため残す</td>
+          </tr>
+          <tr>
+            <td>繰り返し・長時間・威圧的言動あり</td>
+            <td style="color:var(--warn); font-weight:700;">切り替えサイン</td>
+            <td>マニュアルのトリガー確認。上席に相談し人・場所・時間を変える</td>
+          </tr>
+          <tr>
+            <td>脅迫・人格否定・執拗な繰り返し</td>
+            <td style="color:var(--accent); font-weight:700;">組織対応へ</td>
+            <td>即座に管理者へ引き継ぎ。書面対応・弁護士等の外部専門家も視野に</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">📌</span>最低限覚えておきたい3つのポイント</div>
+      <div class="chips">
+        <span class="chip">①　感情ではなく「内容×手段」で判断する</span>
+        <span class="chip">②　現場の役割は「切り替え」であって「解決」ではない</span>
+        <span class="chip">③　記録は「会社を守る証拠」として事実ベースで残す</span>
+      </div>
+      <hr class="divider">
+      <div class="callout ok" style="margin-bottom:0;">
+        <div class="callout-title">✔ カスハラ対策のゴール</div>
+        現場を強くすることではなく、<strong>現場を一人にしない仕組みを作ること</strong>です。
+        マニュアル・相談窓口・記録のすべてが、現場を守るための命綱です。
+      </div>
+    </div>
+
+    <a class="back-top" href="#top">▲ 目次に戻る</a>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>本資料は「短時間集中！45分で学ぶ令和のハラスメント対策」研修（特定社会保険労務士 土橋 豪）の振り返り用資料です。</p>
+  <p style="margin-top:4px;">現場で迷ったときはまず相談窓口・上席にご連絡ください。</p>
+</footer>
+
+</body>
+</html>
