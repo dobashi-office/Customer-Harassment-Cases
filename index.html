@@ -6,126 +6,163 @@
 <title>カスタマーハラスメント事例集</title>
 
 <style>
-
-:root{
---bg1:#0f172a;
---bg2:#1e293b;
---accent:#334155;
---card:#ffffff;
---text:#1f2937;
---sub:#6b7280;
---line:#e5e7eb;
---primary:#2563eb;
---shadow:0 20px 40px rgba(0,0,0,0.08);
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    --hero-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    --text-main: #1e293b;
+    --text-sub: #64748b;
+    --card-bg: #ffffff;
+    --border: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
-background:linear-gradient(135deg,#f1f5f9,#e2e8f0);
-min-height:100vh;
-padding:40px 20px;
-color:var(--text);
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-.wrapper{
-max-width:900px;
-margin:auto;
+.wrapper {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
-.hero{
-background:linear-gradient(135deg,#0f172a,#1e293b);
-color:white;
-padding:40px;
-border-radius:20px;
-margin-bottom:30px;
-box-shadow:var(--shadow);
+.hero {
+    background: var(--hero-gradient);
+    color: white;
+    padding: 50px 40px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+    text-align: center;
 }
 
-.hero h1{
-font-size:32px;
-margin-bottom:10px;
-letter-spacing:.05em;
+.hero h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
 }
 
-.hero p{
-color:#cbd5e1;
-line-height:1.7;
+.hero p {
+    color: #94a3b8;
+    font-size: 15px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-.section{
-background:white;
-border-radius:20px;
-padding:30px;
-box-shadow:var(--shadow);
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-.card{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px;
-border-radius:16px;
-border:1px solid var(--line);
-margin-bottom:16px;
-text-decoration:none;
-color:inherit;
-transition:.2s;
+.card {
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow);
 }
 
-.card:hover{
-transform:translateY(-2px);
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-border-color:#cbd5e1;
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary);
 }
 
-.left{
-display:flex;
-gap:16px;
-align-items:center;
+.left {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex: 1;
 }
 
-.number{
-width:50px;
-height:50px;
-border-radius:12px;
-background:#f1f5f9;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold;
-font-size:20px;
-color:#334155;
+.number {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--primary);
+    transition: 0.3s;
 }
 
-.title{
-font-size:18px;
-font-weight:600;
-margin-bottom:4px;
+.card:hover .number {
+    background: var(--primary);
+    color: white;
 }
 
-.desc{
-font-size:14px;
-color:#6b7280;
+.title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-main);
 }
 
-.arrow{
-font-size:24px;
-color:#94a3b8;
+.desc {
+    font-size: 14px;
+    color: var(--text-sub);
 }
 
-.footer{
-text-align:center;
-margin-top:20px;
-font-size:12px;
-color:#6b7280;
+.arrow {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 50%;
+    color: #94a3b8;
+    font-size: 20px;
+    margin-left: 15px;
+    transition: 0.3s;
 }
 
+.card:hover .arrow {
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-bottom: 40px;
+    font-size: 14px;
+    color: var(--text-sub);
+    font-weight: 500;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 22px; }
+    .card { padding: 20px; }
+    .title { font-size: 16px; }
+    .number { width: 36px; height: 36px; font-size: 16px; }
+}
 </style>
 
 </head>
@@ -134,74 +171,62 @@ color:#6b7280;
 
 <div class="wrapper">
 
-<div class="hero">
-<h1>カスタマーハラスメント事例集</h1>
-<p>
-実際に発生したカスタマーハラスメント事例をもとに、<br>
-対応のポイントとリスクを整理した資料です。<br>
-クリックすると各事例ページが開きます。
-</p>
-</div>
+    <div class="hero">
+        <h1>カスタマーハラスメント事例集</h1>
+        <p>実例から学ぶ対応のポイントと法的リスク。各事例をクリックして詳細を確認してください。</p>
+    </div>
 
-<div class="section">
+    <div class="section">
 
-<a class="card" href="事例１_ビールかけちゃった事件.html">
-<div class="left">
-<div class="number">1</div>
-<div>
-<div class="title">ビールかけちゃった事件</div>
-<div class="desc">
-初期対応の誤りから重大なクレームへ発展した事例
-</div>
-</div>
-</div>
-<div class="arrow">›</div>
-</a>
+        <a class="card" href="事例１_ビールかけちゃった事件.html">
+            <div class="left">
+                <div class="number">1</div>
+                <div>
+                    <div class="title">ビールかけちゃった事件</div>
+                    <div class="desc">初期対応の誤りから重大なクレームへ発展した事例</div>
+                </div>
+            </div>
+            <div class="arrow">›</div>
+        </a>
 
-<a class="card" href="事例２_食事がまずい事件.html">
-<div class="left">
-<div class="number">2</div>
-<div>
-<div class="title">食事がまずい事件</div>
-<div class="desc">
-一言の発言から理不尽なクレームへ発展した事例
-</div>
-</div>
-</div>
-<div class="arrow">›</div>
-</a>
+        <a class="card" href="事例２_食事がまずい事件.html">
+            <div class="left">
+                <div class="number">2</div>
+                <div>
+                    <div class="title">食事がまずい事件</div>
+                    <div class="desc">一言の発言から理不尽なクレームへ発展した事例</div>
+                </div>
+            </div>
+            <div class="arrow">›</div>
+        </a>
 
-<a class="card" href="事例３_髪の毛混入事件.html">
-<div class="left">
-<div class="number">3</div>
-<div>
-<div class="title">髪の毛混入事件</div>
-<div class="desc">
-会話のすれ違いによりクレームが拡大した事例
-</div>
-</div>
-</div>
-<div class="arrow">›</div>
-</a>
+        <a class="card" href="事例３_髪の毛混入事件.html">
+            <div class="left">
+                <div class="number">3</div>
+                <div>
+                    <div class="title">髪の毛混入事件</div>
+                    <div class="desc">会話のすれ違いによりクレームが拡大した事例</div>
+                </div>
+            </div>
+            <div class="arrow">›</div>
+        </a>
 
-<a class="card" href="事例４_コンビニ嫌がらせ事件.html">
-<div class="left">
-<div class="number">4</div>
-<div>
-<div class="title">コンビニ嫌がらせ事件</div>
-<div class="desc">
-マニュアル対応でも発生するカスタマーハラスメント
-</div>
-</div>
-</div>
-<div class="arrow">›</div>
-</a>
+        <a class="card" href="事例４_コンビニ嫌がらせ事件.html">
+            <div class="left">
+                <div class="number">4</div>
+                <div>
+                    <div class="title">コンビニ嫌がらせ事件</div>
+                    <div class="desc">マニュアル対応でも発生するハラスメント</div>
+                </div>
+            </div>
+            <div class="arrow">›</div>
+        </a>
 
-</div>
+    </div>
 
-<div class="footer">
-特定社会保険労務士　土橋　豪
-</div>
+    <div class="footer">
+        特定社会保険労務士　土橋　豪
+    </div>
 
 </div>
 
