@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事例1：ビールかけちゃった事件</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; }
+        @media print {
+            @page { size: A4 portrait; margin: 0; }
+            body { margin: 0; padding: 0; background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .a4-container { box-shadow: none; margin: 0; padding: 15mm; width: 100%; min-height: 100vh; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 py-8 flex justify-center text-slate-800">
+    <div class="a4-container bg-white w-full max-w-[210mm] min-h-[297mm] p-10 shadow-2xl relative overflow-hidden">
+        <!-- 装飾 -->
+        <div class="absolute top-0 left-0 w-full h-3 bg-indigo-600"></div>
+
+        <header class="mb-6 border-b-2 border-slate-200 pb-4">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="bg-indigo-600 text-white text-sm px-3 py-1 rounded-full font-bold tracking-wider">事例 1</span>
+                <span class="text-indigo-600 font-bold text-sm">初期対応の誤りから</span>
+            </div>
+            <h1 class="text-2xl font-extrabold text-slate-800">ビールかけちゃった事件</h1>
+        </header>
+
+        <section class="mb-6 bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <h2 class="text-sm font-bold text-slate-500 mb-2 flex items-center"><span class="w-1.5 h-4 bg-indigo-400 mr-2 rounded-sm"></span>発生状況（概要）</h2>
+            <p class="text-sm leading-relaxed">スーツ姿の3人組が盛り上がっている。アルバイトが追加の生ビールを運んできたところ、客の一人が、お盆から直接ジョッキを取ったことでバランスが崩れて、他のジョッキが滑り落ちてしまった。こぼれたビールは客のスーツにもかかった。</p>
+        </section>
+
+        <div class="grid grid-cols-2 gap-6">
+            <!-- 左カラム：やり取り -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-500 mb-3 border-b pb-1">具体的なやり取り（時系列）</h2>
+                <div class="space-y-3 text-[13px] leading-relaxed">
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">アルバイト</span>
+                        <p>「あっ、すんませ〜ん」<br><span class="text-[11px] text-slate-500">（その場にあったおしぼりでテーブルを拭く）</span></p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">客</span>
+                        <p>「おい、てめぇ!!お客様が濡れてんだろ」<span class="text-[11px] text-slate-500">（大声で怒鳴る）</span></p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">アルバイト</span>
+                        <p><span class="text-[11px] text-slate-500">（慌てて使用済みのおしぼりでスーツを拭き始める）</span></p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">客</span>
+                        <p>「そんなもんで拭くな、このスーツいくらだと思ってんだ! オーダー品だぞ」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">アルバイト</span>
+                        <p>「(小声で)お客さんが、勝手にお盆から取るから･･･」</p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">客</span>
+                        <p>「なんだその態度は、俺達がわるいっていうのか、謝れ! 土下座しろ!!」<span class="text-[11px] text-slate-500">（胸ぐらを掴む）</span><br>
+                        「お前が責任者か。このスーツどうしてくれるんだ! こいつにビールをかけられたんだぞ!!」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">店長</span>
+                        <p><span class="text-[11px] text-slate-500">（事情がよく分からないまま丁重に謝罪）</span><br>「申し訳ございません クリーニング代はお支払い致します」</p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">客</span>
+                        <p>「よし、じゃあ言ったとおりに念書を書け」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">店長</span>
+                        <p><span class="text-[11px] text-slate-500">（言われるがままその場で念書を書く）</span></p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">客</span>
+                        <p>「後で連絡するからな!」</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右カラム：結末と総括 -->
+            <div class="flex flex-col gap-5">
+                <div class="bg-slate-800 text-white p-4 rounded-lg shadow-md">
+                    <h3 class="font-bold text-sm mb-2 flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>結末</h3>
+                    <p class="text-[13px] leading-relaxed">後日、スーツ代100万円の請求書が届く。会社は「勝手に念書を書いたからだ」と取り合わず、店長は一人で対応を迫られ<strong>メンタル不調で出勤できなくなった。</strong></p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-700 mb-3 border-b pb-1">対応の総括（悪かった点・解決策）</h3>
+                    <ul class="text-[13px] space-y-3">
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-red-100 text-red-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-red-200">NG</span><strong>アルバイトの謝罪・行動：</strong><br>
+                            「すんませ〜ん」ではなく「申し訳ございません」等と丁重に謝るべき。また、テーブル等を拭く前に、まずは顧客に怪我がないか、濡れていないかの確認が先。
+                        </li>
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-red-100 text-red-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-red-200">NG</span><strong>「お客さんが勝手に･･･」：</strong><br>
+                            相手に非があっても言うべきではない。
+                        </li>
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-red-100 text-red-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-red-200">NG</span><strong>店長の安易な謝罪・念書：</strong><br>
+                            事情を確認せず謝罪すると問題を大きくする。過失に応じた謝罪が必要。また、過剰な要求や個人に責任を負わせる念書は絶対に書かない。
+                        </li>
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-red-100 text-red-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-red-200">NG</span><strong>会社の対応（店長への責任転嫁）：</strong><br>
+                            会社が窓口となって対応しなければならない。従業員の安全確保や精神面への配慮が必要。
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100 mt-auto">
+                    <h3 class="font-bold text-indigo-800 text-[13px] mb-2">💡 この事例のポイント</h3>
+                    <ul class="text-[12px] list-disc pl-4 space-y-1.5 font-medium text-slate-700">
+                        <li>会社全体で、接客方法（トラブル時の対応）を見直す</li>
+                        <li>その場ですべて解決しようとしない</li>
+                        <li>念書等は安易に書かない、またサインしない</li>
+                        <li>個人ではなく会社の問題として対応する</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

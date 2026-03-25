@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事例4：コンビニ嫌がらせ事件</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; }
+        @media print {
+            @page { size: A4 portrait; margin: 0; }
+            body { margin: 0; padding: 0; background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .a4-container { box-shadow: none; margin: 0; padding: 15mm; width: 100%; min-height: 100vh; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 py-8 flex justify-center text-slate-800">
+    <div class="a4-container bg-white w-full max-w-[210mm] min-h-[297mm] p-10 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-3 bg-cyan-600"></div>
+
+        <header class="mb-6 border-b-2 border-slate-200 pb-4">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="bg-cyan-600 text-white text-sm px-3 py-1 rounded-full font-bold tracking-wider">事例 4</span>
+                <span class="text-cyan-600 font-bold text-sm">マニュアルどおりの対応をしても</span>
+            </div>
+            <h1 class="text-2xl font-extrabold text-slate-800">コンビニ嫌がらせ事件</h1>
+        </header>
+
+        <section class="mb-6 bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <h2 class="text-sm font-bold text-slate-500 mb-2 flex items-center"><span class="w-1.5 h-4 bg-cyan-400 mr-2 rounded-sm"></span>発生状況（概要）</h2>
+            <p class="text-sm leading-relaxed">年末に常連客が来店し、孫のお年玉用に1万円札2枚を千円札に両替して欲しいと要求。店員がマニュアル通りに両替を断ったことから、特定の店員を標的にした嫌がらせが始まった。</p>
+        </section>
+
+        <div class="grid grid-cols-2 gap-6">
+            <!-- 左カラム：やり取り -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-500 mb-3 border-b pb-1">具体的なやり取り（時系列）</h2>
+                <div class="space-y-3 text-[13px] leading-relaxed">
+                    <div class="text-[11px] text-center text-slate-500 bg-slate-100 py-1.5 rounded">
+                        常連客が1万円札2枚をすべて千円札に両替して欲しいと要求
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">店員（○山）</span>
+                        <p>「申し訳ございませんが、両替はお断りしております」</p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">客</span>
+                        <p>「いつも買ってやってんだろ、けちくせえこと言うなよ」<br>
+                        「使えねえなあ、じゃあ、63円切手1枚くれ、釣りは千円札で」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">店員（○山）</span>
+                        <p>「申し訳ございませんが、そういう決まりなので･･･」<span class="text-[11px] text-slate-500">（お釣りを渡す）</span></p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">客</span>
+                        <p><span class="text-[11px] text-slate-500">（財布にお釣りを入れたあと）</span><br>「あ〜もう1枚くれ、釣りは千円札で」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">店員（○山）</span>
+                        <p>「･･･千円札が足りないので、五千円札が入ります」<span class="text-[11px] text-slate-500">（とお釣りを渡そうとした）</span></p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">客</span>
+                        <p><span class="text-[11px] text-slate-500">（レジの中を覗き、大声で）</span><br>「おい、千円札あるじゃねえかよ!」<span class="text-[11px] text-slate-500">（カウンターを蹴飛ばす）</span></p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">店員（○山）</span>
+                        <p><strong>「おやめください。警察を呼びますよ･･･」</strong><span class="text-[11px] text-slate-500">（そのままお釣りを渡した）</span></p>
+                    </div>
+                    <div class="text-[11px] text-center text-slate-500 bg-slate-100 py-1.5 rounded">
+                        それから、○山を標的に嫌がらせが始まった
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">客</span>
+                        <p>「○山 こっちのレジ開けて早くやれ」<br>
+                        「○山 お前今日何時に終わるんだ?外で待ってるからな」<br>
+                        「○山本部にクレーム入れるからな」<br>
+                        「○山 まだお前働いているのか」</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右カラム：結末と総括 -->
+            <div class="flex flex-col gap-5">
+                <div class="bg-slate-800 text-white p-4 rounded-lg shadow-md">
+                    <h3 class="font-bold text-sm mb-2 flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>結末</h3>
+                    <p class="text-[13px] leading-relaxed">店長に相談できず一人で抱え込んだ店員（〇山）は次第に限界を迎え、<strong>「店長、もう耐えられません。辞めます」と退職に追い込まれた。</strong></p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-700 mb-3 border-b pb-1">対応の総括（悪かった点・解決策）</h3>
+                    <ul class="text-[13px] space-y-3">
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-blue-100 text-blue-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-blue-200">OK</span><strong>「両替はお断りしております」：</strong><br>
+                            マニュアルに沿った正しい対応をしている。
+                        </li>
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-yellow-200">注意</span><strong>「そういう決まりなので…」：</strong><br>
+                            杓子定規な言い方は相手に不快感を与えることもある。伝え方の工夫が必要。
+                        </li>
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-yellow-200">注意</span><strong>「警察を呼びますよ…」：</strong><br>
+                            安易に「警察」という言葉を使うことで、相手を過度に刺激することもある。
+                        </li>
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-red-100 text-red-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-red-200">NG</span><strong>〇山が一人で抱え込んだ：</strong><br>
+                            一人で対応しようとせず、速やかに周囲（店長等）に相談・報告すべきだった。
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-cyan-50 p-4 rounded-lg border border-cyan-100 mt-auto">
+                    <h3 class="font-bold text-cyan-800 text-[13px] mb-2">💡 この事例のポイント</h3>
+                    <ul class="text-[12px] list-disc pl-4 space-y-1.5 font-medium text-slate-700">
+                        <li>マニュアルに沿った対応でも、伝え方によっては相手を怒らせてしまうことがある</li>
+                        <li>名前を特定されるため、名札の着用の是非（を検討する）</li>
+                        <li>一人で対応しないで周囲に相談する</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

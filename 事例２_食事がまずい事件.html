@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事例2：食事がまずい事件</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; }
+        @media print {
+            @page { size: A4 portrait; margin: 0; }
+            body { margin: 0; padding: 0; background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .a4-container { box-shadow: none; margin: 0; padding: 15mm; width: 100%; min-height: 100vh; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 py-8 flex justify-center text-slate-800">
+    <div class="a4-container bg-white w-full max-w-[210mm] min-h-[297mm] p-10 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-3 bg-emerald-600"></div>
+
+        <header class="mb-6 border-b-2 border-slate-200 pb-4">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="bg-emerald-600 text-white text-sm px-3 py-1 rounded-full font-bold tracking-wider">事例 2</span>
+                <span class="text-emerald-600 font-bold text-sm">予期せぬ「一言」から</span>
+            </div>
+            <h1 class="text-2xl font-extrabold text-slate-800">食事がまずい事件</h1>
+        </header>
+
+        <section class="mb-6 bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <h2 class="text-sm font-bold text-slate-500 mb-2 flex items-center"><span class="w-1.5 h-4 bg-emerald-400 mr-2 rounded-sm"></span>発生状況（概要）</h2>
+            <p class="text-sm leading-relaxed">介護施設で入居者(母)が「最近食事がまずいわね」と言い出し、スタッフは認知症の初期症状による味覚障害を疑っていた。<br>その後、面会に来た娘が母から「食事がまずくてまともに食べられない」と聞かされたことからトラブルに発展した。</p>
+        </section>
+
+        <div class="grid grid-cols-2 gap-6">
+            <!-- 左カラム：やり取り -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-500 mb-3 border-b pb-1">具体的なやり取り（時系列）</h2>
+                <div class="space-y-3 text-[13px] leading-relaxed">
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">娘</span>
+                        <p>「母が食事がおいしくなくなったって言ってるんですけど･･･仕入れ先を変えてませんか」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">スタッフ</span>
+                        <p>「お口に合わなくなったみたいですね。栄養士も調理スタッフも変わっていないんですけど」「いえいえ、以前と同じなんですよ」</p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">娘</span>
+                        <p>「だったら、他に何かありませんか」「でも、母は食べ物を絶対残さない人だから、本当においしくなくなったんだと思うんですよ」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">スタッフ</span>
+                        <p>「席も同じで、一緒に食べる方も同じですし･･･食事の時間に合わせて温かいものをお出ししてますし･･･」<br>
+                        <strong>「そうですか･･･、認知症の症状がでてきてるのかもしれないですね」</strong></p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">娘</span>
+                        <p>「え、認知症?母に問題があるとでも言うの 今話してきたけど普通だったし、そんな話聞いてないわ」</p>
+                    </div>
+                    <div class="text-[11px] text-center text-slate-500 bg-slate-100 py-1.5 rounded">
+                        この件をきっかけに、娘は理不尽な言動を繰り返すようになる
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">娘</span>
+                        <p>「入居者の気持がわからないのに、介護の仕事なんかしてんじゃないわよ、この馬鹿女」<br>
+                        「都合が悪いと、誰も彼もすぐ認知症扱いにして!!」<br>
+                        「高いお金払ってるんだから、言うとおりにしなさいよ」<br>
+                        「あんたなんか辞めさせるの簡単よ」「ちゃんと私の話を聞きなさいよ」</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右カラム：結末と総括 -->
+            <div class="flex flex-col gap-5">
+                <div class="bg-slate-800 text-white p-4 rounded-lg shadow-md">
+                    <h3 class="font-bold text-sm mb-2 flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>結末</h3>
+                    <p class="text-[13px] leading-relaxed">スタッフが相談窓口に相談し施設長が対応。謝罪や書面での申し入れを行ったが理不尽な言動（長時間居座り等）は収まらず、<strong>利用規約に基づき契約解除を検討</strong>する事態となった。</p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-700 mb-3 border-b pb-1">対応の総括（悪かった点・解決策）</h3>
+                    <ul class="text-[13px] space-y-3">
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-red-100 text-red-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-red-200">NG</span><strong>「認知症」の可能性を伝えた：</strong><br>
+                            受け取り方によっては傷つく言葉。「認知症」「障がい」「病名」などセンシティブな言葉を伝える場合の対応方法を明確にしておくべき。
+                        </li>
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-blue-100 text-blue-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-blue-200">OK</span><strong>「出前」の要求を断った：</strong><br>
+                            できることと、できないことがあることをはっきり伝えている点は良い。
+                        </li>
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-blue-100 text-blue-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-blue-200">OK</span><strong>施設としての適切な組織的対応：</strong><br>
+                            相談窓口が機能し施設長が適切に対応。謝罪し担当者を変更。書面で迷惑行為の停止を申し入れ、規約に基づき契約解除等、段階を踏んで対応した。
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100 mt-auto">
+                    <h3 class="font-bold text-emerald-800 text-[13px] mb-2">💡 この事例のポイント</h3>
+                    <ul class="text-[12px] list-disc pl-4 space-y-1.5 font-medium text-slate-700">
+                        <li>できることと、できないことを施設として定めておく</li>
+                        <li>できることと、できないことを相手に伝える</li>
+                        <li>相手が応じない場合は、文書等できちんと説明し証拠を残す</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

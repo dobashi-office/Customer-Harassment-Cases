@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事例3：髪の毛混入事件</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; }
+        @media print {
+            @page { size: A4 portrait; margin: 0; }
+            body { margin: 0; padding: 0; background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .a4-container { box-shadow: none; margin: 0; padding: 15mm; width: 100%; min-height: 100vh; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 py-8 flex justify-center text-slate-800">
+    <div class="a4-container bg-white w-full max-w-[210mm] min-h-[297mm] p-10 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-3 bg-amber-500"></div>
+
+        <header class="mb-6 border-b-2 border-slate-200 pb-4">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="bg-amber-500 text-white text-sm px-3 py-1 rounded-full font-bold tracking-wider">事例 3</span>
+                <span class="text-amber-600 font-bold text-sm">会話のすれ違いから</span>
+            </div>
+            <h1 class="text-2xl font-extrabold text-slate-800">髪の毛混入事件</h1>
+        </header>
+
+        <section class="mb-6 bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <h2 class="text-sm font-bold text-slate-500 mb-2 flex items-center"><span class="w-1.5 h-4 bg-amber-400 mr-2 rounded-sm"></span>発生状況（概要）</h2>
+            <p class="text-sm leading-relaxed">子どもの誕生日会のケーキに髪の毛が混入。翌日、妻がケーキ屋に電話で苦情を入れたが、店員が事実確認をしようとしたことで「疑われている」と会話がすれ違い、怒りが増幅した。</p>
+        </section>
+
+        <div class="grid grid-cols-2 gap-6">
+            <!-- 左カラム：やり取り -->
+            <div>
+                <h2 class="text-sm font-bold text-slate-500 mb-3 border-b pb-1">具体的なやり取り（時系列）</h2>
+                <div class="space-y-3 text-[13px] leading-relaxed">
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">妻</span>
+                        <p>「昨日お宅で誕生日ケーキを買った○○ですけど、髪の毛が入ってたんです･･･」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">店員</span>
+                        <p>「それは誠に申し訳ございません。○○様ですね。すぐに同じケーキをご用意いたします。何時頃取りに来られますか?」</p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">妻</span>
+                        <p>「いえいえそう言う事じゃないんです。ただ、子どもの誕生日会に、みんなが集まっていたので、がっかりしちゃいました･･･」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">店員</span>
+                        <p>「髪の毛については十分に注意をしており、お客様からご指摘を受けた事はなかったのですが、どの様な状況でしたか?どんな髪の毛でしたか?箱を開けた時に確認されましたか?」</p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">妻</span>
+                        <p><span class="text-[11px] text-slate-500">（呆れながら）</span>「子どもが食べてるときに気が付いたんです･･･」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">店員</span>
+                        <p>「その髪の毛は取ってありますか? 調べさせていただきたいのですが」</p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">妻</span>
+                        <p>「まさか疑ってるんじゃないでしょうね、そんなもの取ってないわよ。さっきからあなた、なんなんですか･･･」<br>「いい加減にしてよ。あなたじゃ話にならないから、責任者に代わってよ」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">店員</span>
+                        <p>「いえいえ、そのようなことは申しておりません。原因がはっきりしないと」<br>「･･･オーナーは現在不在ですので、私からきちんと報告しておきます」</p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">妻</span>
+                        <p>「不在っ!!いいから早く連絡して!待ってますから」</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-3">
+                        <span class="text-[11px] font-bold text-blue-700 block mb-0.5">店員</span>
+                        <p>「オーナーはゴルフに行っているので連絡がとれません」</p>
+                    </div>
+                    <div class="border-l-4 border-rose-400 pl-3 bg-rose-50 py-1 pr-1 rounded-r">
+                        <span class="text-[11px] font-bold text-rose-700 block mb-0.5">妻</span>
+                        <p>「はあ!? ゴルフどころじゃないわよ。これ、お店の信用に関わる大問題でしょ!!いますぐ連絡とって呼び戻して!!」</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右カラム：結末と総括 -->
+            <div class="flex flex-col gap-5">
+                <div class="bg-slate-800 text-white p-4 rounded-lg shadow-md">
+                    <h3 class="font-bold text-sm mb-2 flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>結末</h3>
+                    <p class="text-[13px] leading-relaxed">顧客側は激怒し合成写真を拡散すると脅す事態に。翌日報告を受けたオーナーは「クレーマーだな」と軽く見ており、板挟みになった店員が<strong>「こんな時どうしたらいいか決めておいてください」</strong>と訴える結果となった。</p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-700 mb-3 border-b pb-1">対応の総括（悪かった点・解決策）</h3>
+                    <ul class="text-[13px] space-y-3">
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-yellow-200">注意</span><strong>「すぐに同じケーキを…」：</strong><br>
+                            最初の謝罪と取り替えの申し出は正しいが、その後の対応に問題があった。
+                        </li>
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-red-100 text-red-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-red-200">NG</span><strong>「ご指摘を受けた事はなかった」・疑うような発言：</strong><br>
+                            言い訳に聞こえるため不適切。髪の毛は混入経路の判断が難しい。「入ってしまったかもしれない」という前提で対応することが望ましい。
+                        </li>
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-red-100 text-red-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-red-200">NG</span><strong>「ゴルフに行っている」と伝えた：</strong><br>
+                            不在の理由まで伝える必要はない。不在時の対応ルールを決め、早急に連絡・報告すること。
+                        </li>
+                        <li class="pl-1 leading-relaxed">
+                            <span class="inline-block bg-red-100 text-red-700 text-[10px] px-1.5 py-0.5 rounded mr-1 font-bold align-text-bottom border border-red-200">NG</span><strong>オーナーの「クレーマーだな」発言：</strong><br>
+                            安易にクレーマーと決めつけないこと。
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-amber-50 p-4 rounded-lg border border-amber-100 mt-auto">
+                    <h3 class="font-bold text-amber-800 text-[13px] mb-2">💡 この事例のポイント</h3>
+                    <ul class="text-[12px] list-disc pl-4 space-y-1.5 font-medium text-slate-700">
+                        <li>相手の立場にたって話を聴き、相手の気持ちを理解しようとする</li>
+                        <li>電話対応マニュアルを作成し、現場で対応できるようにしておく</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
