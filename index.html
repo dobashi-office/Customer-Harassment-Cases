@@ -2,1190 +2,415 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-<meta name="googlebot" content="noindex, nofollow">
-<title>職場環境チェックリスト｜ハラスメント自己点検</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カスタマーハラスメント 研修資料ポータル</title>
+
+<meta name="robots" content="noindex, nofollow">
+
 <style>
-:root{
-  --bg:#FBF8F3; --panel:#FFFFFF; --ink:#1F3A5F; --ink-soft:#4A6285;
-  --line:#E3DCD0; --muted:#8A8175;
-  --navy:#1F3A5F; --navy-tint:#EDF1F7;
-  --terra:#C4623F; --terra-tint:#FBF0EA;
-  --accent:var(--navy); --accent-tint:var(--navy-tint);
-  --ok:#2E7D5B; --ok-tint:#EAF4EF;
-  --warn:#B8892B; --alert:#B23A2E;
-  --radius:14px;
-  --shadow:0 1px 2px rgba(31,58,95,.06), 0 8px 24px rgba(31,58,95,.07);
+:root {
+  --primary:       #2c5f8a;
+  --primary-dark:  #1a3f60;
+  --primary-lt:    #e8f1f8;
+  --accent:        #c0392b;
+  --ok:            #1e7e4a;
+  --warn:          #d4860a;
+  --text-main:     #1e293b;
+  --text-sub:      #64748b;
+  --card-bg:       #ffffff;
+  --border:        #e2e8f0;
+  --bg:            #f4f7fb;
+  --shadow:        0 4px 12px rgba(0,0,0,.08);
+  --shadow-hover:  0 16px 32px rgba(0,0,0,.13);
+  --radius:        18px;
 }
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  background:var(--bg); color:var(--ink);
-  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",system-ui,-apple-system,sans-serif;
-  line-height:1.8; font-size:16px; -webkit-text-size-adjust:100%;
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+               "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
-body[data-theme="sexual"]{--accent:var(--terra); --accent-tint:var(--terra-tint)}
-.wrap{max-width:820px;margin:0 auto;padding:0 18px 72px}
-.screen{display:none}
-.screen.active{display:block}
 
-/* ---------- ヘッダ ---------- */
-.site-head{border-top:5px solid var(--accent);background:var(--panel);border-bottom:1px solid var(--line)}
-.site-head .inner{max-width:820px;margin:0 auto;padding:16px 18px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.site-head h1{font-size:17px;margin:0;letter-spacing:.04em}
-.site-head .sub{font-size:12px;color:var(--muted);letter-spacing:.08em}
-
-/* ---------- 表紙 ---------- */
-.hero{padding:44px 0 8px;text-align:center}
-.hero .eyebrow{font-size:12px;letter-spacing:.24em;color:var(--muted);margin:0 0 14px}
-.hero h2{font-size:30px;line-height:1.45;margin:0 0 8px;letter-spacing:.02em}
-.hero .lead{color:var(--ink-soft);font-size:15px;margin:0 auto;max-width:34em;text-align:left}
-.rule{width:52px;height:3px;background:var(--accent);margin:22px auto 30px;border-radius:2px}
-
-.pickers{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:8px 0 32px}
-@media(max-width:640px){.pickers{grid-template-columns:1fr}}
-.pick{
-  appearance:none;text-align:left;cursor:pointer;background:var(--panel);
-  border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;
-  box-shadow:var(--shadow);transition:transform .15s ease, box-shadow .15s ease, border-color .15s;
-  font-family:inherit;color:inherit;position:relative;overflow:hidden;
+/* ===== WRAPPER ===== */
+.wrapper {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 56px 20px 80px;
 }
-.pick::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c)}
-.pick:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(31,58,95,.08),0 14px 32px rgba(31,58,95,.1);border-color:var(--c)}
-.pick .kicker{font-size:11px;letter-spacing:.18em;color:var(--c);font-weight:700;margin-bottom:6px}
-.pick .name{font-size:22px;font-weight:700;margin:0 0 6px;letter-spacing:.03em}
-.pick .meta{font-size:13px;color:var(--muted);margin:0 0 14px}
-.pick .go{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--c)}
 
-/* ---------- カード/囲み ---------- */
-.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin:0 0 20px}
-.card h3{margin:0 0 14px;font-size:16px;letter-spacing:.04em;display:flex;align-items:center;gap:9px}
-.card h3::before{content:"";width:4px;height:17px;background:var(--accent);border-radius:2px;flex:none}
-.note{background:#FDFAF4;border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:8px;padding:14px 18px;font-size:13.5px;color:var(--ink-soft)}
-.note strong{color:var(--ink)}
-.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:10px}
-.steps li{counter-increment:s;padding-left:38px;position:relative;font-size:14.5px}
-.steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:24px;height:24px;border-radius:50%;background:var(--accent-tint);color:var(--accent);font-size:12px;font-weight:700;display:grid;place-items:center}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:640px){.grid2{grid-template-columns:1fr}}
-.deflist{margin:0;font-size:14px}
-.deflist div{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
-.deflist div:last-child{border-bottom:0}
-.deflist .k{flex:none;font-weight:700;color:var(--accent)}
-
-/* ---------- 設問 ---------- */
-.qbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0 10px;border-bottom:1px solid var(--line);margin-bottom:24px}
-.qbar .row{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12.5px;color:var(--muted);margin-bottom:8px}
-.qbar .title{font-weight:700;color:var(--accent);letter-spacing:.06em}
-.track{height:6px;background:#EDE8DF;border-radius:99px;overflow:hidden}
-.track > i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .3s ease}
-
-.qcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 26px 24px}
-.qhead{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
-.qno{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted)}
-.tag{font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:3px 10px;border-radius:99px;background:var(--accent-tint);color:var(--accent)}
-.tag.plus{background:var(--ok-tint);color:var(--ok)}
-.qtext{font-size:20px;line-height:1.7;margin:0 0 22px;font-weight:600;letter-spacing:.01em}
-@media(max-width:640px){.qtext{font-size:17.5px}}
-
-.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.choice{
-  appearance:none;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;
-  padding:15px 10px;border-radius:10px;border:1.5px solid var(--line);background:#fff;color:var(--ink-soft);
-  transition:.15s;letter-spacing:.08em;
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #1a3f60 0%, #2c5f8a 55%, #3b7db5 100%);
+  color: #fff;
+  padding: 56px 40px 52px;
+  border-radius: 24px;
+  margin-bottom: 48px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.choice:hover{border-color:var(--accent);color:var(--accent)}
-.choice[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
-.choice.no[aria-pressed="true"]{background:var(--ink-soft);border-color:var(--ink-soft);color:#fff}
 
-.reveal{margin-top:18px}
-.btn-reveal{
-  appearance:none;width:100%;font-family:inherit;font-size:14.5px;font-weight:700;cursor:pointer;
-  padding:13px;border-radius:10px;border:1.5px dashed var(--accent);background:var(--accent-tint);color:var(--accent);
-  letter-spacing:.06em;transition:.15s;
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.05);
+  pointer-events: none;
 }
-.btn-reveal:hover{background:#fff}
-.answer{
-  margin-top:16px;border-radius:10px;border:1px solid var(--line);border-left:4px solid var(--accent);
-  background:#FDFCF9;padding:18px 20px;
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+  pointer-events: none;
 }
-.answer .lbl{font-size:11.5px;font-weight:700;letter-spacing:.16em;color:var(--accent);margin-bottom:8px}
-.answer p{margin:0;font-size:14.8px;line-height:1.9;white-space:pre-wrap}
-.answer.plus{border-left-color:var(--ok)}
-.answer.plus .lbl{color:var(--ok)}
 
-.nav{display:flex;gap:12px;margin-top:22px;align-items:center}
-.btn{appearance:none;font-family:inherit;font-weight:700;cursor:pointer;border-radius:10px;padding:13px 24px;font-size:15px;letter-spacing:.06em;transition:.15s;border:1.5px solid transparent}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{filter:brightness(1.12)}
-.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink-soft)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
-.nav .spacer{flex:1}
-.quit{margin-top:18px;text-align:center}
-.quit button{background:none;border:0;color:var(--muted);font-size:13px;text-decoration:underline;cursor:pointer;font-family:inherit}
+.hero .badge {
+  display: inline-block;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.38);
+  border-radius: 20px;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  padding: 4px 16px;
+  margin-bottom: 20px;
+}
 
-/* ---------- 結果 ---------- */
-.score{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px 26px;text-align:center;margin-bottom:20px}
-.score .cap{font-size:12px;letter-spacing:.18em;color:var(--muted)}
-.score .num{font-size:60px;font-weight:700;line-height:1.1;color:var(--accent);margin:6px 0 0;letter-spacing:-.02em}
-.score .num small{font-size:20px;color:var(--ink-soft);font-weight:600;margin-left:4px}
-.band{display:inline-block;margin-top:14px;padding:7px 20px;border-radius:99px;font-size:14px;font-weight:700;background:var(--accent-tint);color:var(--accent)}
-.band[data-lv="2"]{background:#FBF3E4;color:var(--warn)}
-.band[data-lv="3"]{background:#FBECEA;color:var(--alert)}
-.score .msg{margin:16px auto 0;max-width:32em;font-size:14.5px;color:var(--ink-soft);text-align:left}
-.plusbox{margin-top:18px;padding-top:18px;border-top:1px dashed var(--line);font-size:14px;color:var(--ink-soft)}
-.plusbox b{color:var(--ok);font-size:19px}
+.hero h1 {
+  font-size: clamp(21px, 4.5vw, 30px);
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 14px;
+  letter-spacing: .02em;
+}
 
-.bars{display:grid;gap:11px}
-.bar .t{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:5px}
-.bar .t b{font-weight:700}
-.bar .g{height:9px;background:#EFEAE1;border-radius:99px;overflow:hidden}
-.bar .g > i{display:block;height:100%;background:var(--accent);border-radius:99px}
-.bar.plus .g > i{background:var(--ok)}
+.hero p {
+  font-size: 14px;
+  opacity: .82;
+  max-width: 520px;
+  margin: 0 auto;
+}
 
-.hitlist{display:grid;gap:12px}
-.hit{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
-.hit > summary{cursor:pointer;padding:14px 16px;font-size:14.8px;font-weight:600;list-style:none;display:flex;gap:11px;align-items:flex-start}
-.hit > summary::-webkit-details-marker{display:none}
-.hit > summary::after{content:"＋";margin-left:auto;color:var(--accent);font-weight:700;flex:none}
-.hit[open] > summary::after{content:"−"}
-.hit > summary .n{flex:none;font-size:12px;font-weight:700;color:#fff;background:var(--accent);border-radius:5px;padding:2px 7px;margin-top:3px}
-.hit .body{font-size:14.3px;line-height:1.9;color:var(--ink-soft);white-space:pre-wrap;border-top:1px solid var(--line);padding-top:14px;margin:0 16px 16px}
-.hit.plus > summary .n{background:var(--ok)}
-.empty{padding:26px;text-align:center;color:var(--muted);font-size:14px;border:1px dashed var(--line);border-radius:10px}
+/* ===== SECTION LABEL ===== */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  margin-top: 40px;
+}
 
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.9}
+.section-label:first-of-type { margin-top: 0; }
 
-/* ---------- 解説付き一覧（出力用） ---------- */
-.listctl{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:22px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-.seg{display:inline-flex;border:1.5px solid var(--line);border-radius:99px;overflow:hidden;background:#fff}
-.segbtn{appearance:none;border:0;background:transparent;font-family:inherit;font-size:13.5px;font-weight:700;padding:9px 18px;cursor:pointer;color:var(--ink-soft);letter-spacing:.04em}
-.segbtn.active{background:var(--accent);color:#fff}
+.section-label .label-badge {
+  background: var(--primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  padding: 4px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
 
-.sheet{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 30px 24px}
-.sheet-head{border-bottom:2px solid var(--accent);padding-bottom:16px;margin-bottom:20px}
-.sh-title{margin:0;font-size:20px;font-weight:700;letter-spacing:.04em}
-.sh-sub{margin:3px 0 14px;font-size:11.5px;letter-spacing:.18em;color:var(--muted)}
-.sh-meta{width:100%;border-collapse:collapse;font-size:13px}
-.sh-meta th{text-align:left;font-weight:700;color:var(--muted);padding:6px 12px 6px 0;white-space:nowrap;width:1%}
-.sh-meta td{padding:6px 24px 6px 0;border-bottom:1px dotted var(--line)}
-.nameinput{font-family:inherit;font-size:13px;border:0;border-bottom:1px solid var(--line);background:transparent;padding:2px 4px;width:11em;color:var(--ink)}
-.nameinput:focus{outline:none;border-bottom-color:var(--accent)}
+.section-label .label-badge.extra-badge {
+  background: var(--warn);
+}
 
-.lrow{border-bottom:1px solid var(--line);padding:16px 0}
-.lrow:last-child{border-bottom:0}
-.lhead{display:flex;align-items:center;gap:9px;margin-bottom:7px;flex-wrap:wrap}
-.lno{font-size:11.5px;font-weight:700;color:#fff;background:var(--accent);border-radius:5px;padding:2px 8px}
-.lcat{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.06em}
-.yn{margin-left:auto;font-size:12px;font-weight:700;border-radius:99px;padding:2px 13px;border:1.5px solid}
-.yn.y{color:var(--alert);border-color:var(--alert);background:#FBECEA}
-.yn.n{color:var(--ink-soft);border-color:var(--line);background:#fff}
-.yn.u{color:var(--muted);border-color:var(--line);background:#fff}
-.lrow.plus .lno{background:var(--ok)}
-.lrow.plus .yn.y{color:var(--ok);border-color:var(--ok);background:var(--ok-tint)}
-.lq{margin:0 0 9px;font-size:15px;font-weight:700;line-height:1.7}
-.la{margin:0;font-size:13.5px;line-height:1.85;color:var(--ink-soft);white-space:pre-wrap;padding-left:14px;border-left:3px solid var(--accent-tint)}
-.lrow.plus .la{border-left-color:var(--ok-tint)}
-.sheet-foot{margin:22px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.8}
+.section-label .label-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
 
-@media print{
-  body{background:#fff}
-  .site-head,.qbar,.actions,.quit,.nav,.listctl,.foot{display:none!important}
-  .card,.score,.hit{box-shadow:none;break-inside:avoid}
-  .hit .body{display:block!important}
-  .wrap{max-width:none;padding:0}
-  .sheet{border:0;box-shadow:none;padding:0;border-radius:0}
-  .sheet-head{break-after:avoid;page-break-after:avoid}
-  .lrow{break-inside:avoid;page-break-inside:avoid}
-  .nameinput{border-bottom:1px solid #999;width:14em}
-  .nameinput::placeholder{color:transparent}
-  @page{margin:14mm}
+/* ===== CARD LIST ===== */
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  padding: 22px 24px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: all .3s cubic-bezier(.4,0,.2,1);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--primary);
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary);
+}
+
+.card:hover::before { opacity: 1; }
+
+/* review card accent */
+.card.review::before { background: var(--ok); }
+.card.review:hover   { border-color: var(--ok); }
+.card.review:hover .icon-wrap { background: var(--ok); color: #fff; }
+.card.review:hover .arrow     { color: var(--ok); }
+
+/* case card accent */
+.card.case::before { background: var(--primary); }
+.card.case:hover .icon-wrap { background: var(--primary); color: #fff; }
+.card.case:hover .arrow     { color: var(--primary); }
+
+/* extra card accent */
+.card.extra::before { background: var(--warn); }
+.card.extra:hover   { border-color: var(--warn); }
+.card.extra:hover .icon-wrap { background: var(--warn); color: #fff; }
+.card.extra:hover .arrow     { color: var(--warn); }
+
+.card-inner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===== ICON WRAP ===== */
+.icon-wrap {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: .3s;
+}
+
+.icon-wrap.review-icon {
+  background: #eaf6ee;
+  color: var(--ok);
+}
+
+.icon-wrap.extra-icon {
+  background: #fff4df;
+  color: var(--warn);
+}
+
+/* ===== NUMBER (case) ===== */
+.number {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: var(--primary-lt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--primary);
+  transition: .3s;
+}
+
+.card-text { min-width: 0; }
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+.arrow {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f7fb;
+  border-radius: 50%;
+  color: #94a3b8;
+  font-size: 20px;
+  margin-left: 12px;
+  transition: .3s;
+}
+
+.card:hover .arrow { transform: translateX(4px); }
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-sub);
+  font-weight: 500;
+}
+
+footer span {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: .7;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .wrapper { padding: 36px 16px 60px; }
+  .hero { padding: 40px 20px; border-radius: 18px; }
+  .hero h1 { font-size: 20px; }
+  .card { padding: 18px 16px; }
+  .card-title { font-size: 15px; white-space: normal; }
+  .number, .icon-wrap { width: 40px; height: 40px; font-size: 16px; border-radius: 11px; }
 }
 </style>
 </head>
-<body data-theme="power">
 
-<header class="site-head">
-  <div class="inner">
-    <h1>職場環境チェックリスト</h1>
-    <span class="sub">HARASSMENT SELF-CHECK</span>
-  </div>
-</header>
+<body>
+<div class="wrapper">
 
-<div class="wrap">
-
-<!-- ===================== 表紙 ===================== -->
-<section id="s-start" class="screen active">
+  <!-- HERO -->
   <div class="hero">
-    <p class="eyebrow">自己点検用</p>
-    <h2>ハラスメント<br>チェックリスト</h2>
-    <p class="lead">過去一年間に起きた出来事や、ご自身に当てはまる考え方について「はい／いいえ」でお答えください。1問ごとに解説を確認しながら進められます。</p>
-    <div class="rule"></div>
+    <div class="badge">研修資料ポータル</div>
+    <h1>カスタマーハラスメント対策<br>研修資料まとめ</h1>
+    <p>振り返り資料・事例集をまとめています。<br>各資料をクリックして内容を確認してください。</p>
   </div>
 
-  <div class="pickers">
-    <button class="pick" data-set="power" style="--c:#1F3A5F">
-      <div class="kicker">POWER HARASSMENT</div>
-      <p class="name">パワハラ編</p>
-      <p class="meta">全55問／所要 約10〜15分</p>
-      <span class="go">はじめる →</span>
-    </button>
-    <button class="pick" data-set="sexual" style="--c:#C4623F">
-      <div class="kicker">SEXUAL HARASSMENT</div>
-      <p class="name">セクハラ編</p>
-      <p class="meta">全35問／所要 約7〜10分</p>
-      <span class="go">はじめる →</span>
-    </button>
+  <!-- 振り返り資料 -->
+  <div class="section-label">
+    <span class="label-badge">振り返り資料</span>
+    <div class="label-line"></div>
   </div>
 
-  <div class="card">
-    <h3>進め方</h3>
-    <ol class="steps">
-      <li>質問を読み、「はい」または「いいえ」を選びます。</li>
-      <li><strong>「解説を見る」</strong>を押すと、その場で解説が表示されます。</li>
-      <li>「次の質問へ」で進み、最後まで回答すると結果が表示されます。</li>
-      <li>結果画面では「はい」と答えた項目の解説をまとめて読み返せます。</li>
-    </ol>
-  </div>
-
-  <div class="card">
-    <h3>ハラスメントの４段階</h3>
-    <div class="grid2">
-      <div class="deflist">
-        <div><span class="k">①</span><span>犯罪（刑事罰）にあたるもの</span></div>
-        <div><span class="k">②</span><span>①には当たらないが、民事上違法で損害賠償となるもの</span></div>
-        <div><span class="k">③</span><span>①②には当たらないが、懲戒処分の対象となるもの</span></div>
-        <div><span class="k">④</span><span>①②③には当たらないが、適切ではないもの</span></div>
-      </div>
-      <div>
-        <p style="margin:0 0 10px;font-size:13.5px;font-weight:700;color:var(--accent);letter-spacing:.04em">パワハラ評価の視点</p>
-        <div class="deflist">
-          <div><span class="k">1</span><span>業務上の必要性があるか否か</span></div>
-          <div><span class="k">2</span><span>人格非難か、行動に対するアドバイスか</span></div>
-          <div><span class="k">3</span><span>見せしめ的な対応がされていないか</span></div>
-          <div><span class="k">4</span><span>相手の属性や心身の状況を理解した指導であるか</span></div>
-          <div><span class="k">5</span><span>長時間・繰り返しになっていないか</span></div>
+  <div class="card-list">
+    <a class="card review" href="カスハラ研修_振り返り資料.html">
+      <div class="card-inner">
+        <div class="icon-wrap review-icon">📋</div>
+        <div class="card-text">
+          <div class="card-title">カスハラ対策 ポイント整理ガイド</div>
+          <div class="card-desc">定義・判断基準・現場対応・禁忌対応・体制整備をまとめた振り返り資料</div>
         </div>
       </div>
-    </div>
-    <p style="margin:16px 0 0;font-size:14px;color:var(--ink-soft)"><strong>④の段階で考えを改めることがとても大事です。</strong>今回のチェックリストにより、自分の考えや行動を改めるきっかけになれば幸いです。</p>
+      <div class="arrow">›</div>
+    </a>
   </div>
 
-  <div class="note">
-    <strong>ご利用にあたって</strong><br>
-    ・このチェックリストは、ハラスメントの有無を判定するものではなく、日ごろの言動を振り返るための自己点検ツールです。<br>
-    ・回答内容はご利用の端末内だけで処理され、どこにも送信・保存されません。安心してお答えください。<br>
-    ・ページを閉じたり再読み込みしたりすると、回答内容は消去されます。
-  </div>
-</section>
-
-<!-- ===================== 設問 ===================== -->
-<section id="s-quiz" class="screen">
-  <div class="qbar">
-    <div class="row">
-      <span class="title" id="q-setname">パワハラ編</span>
-      <span><span id="q-cur">1</span> / <span id="q-total">55</span> 問</span>
-    </div>
-    <div class="track"><i id="q-fill" style="width:0%"></i></div>
+  <!-- 事例集 -->
+  <div class="section-label">
+    <span class="label-badge">事例集</span>
+    <div class="label-line"></div>
   </div>
 
-  <div class="qcard">
-    <div class="qhead">
-      <span class="qno">Q<span id="q-no">1</span></span>
-      <span class="tag" id="q-cat">指導方法</span>
-    </div>
-    <p class="qtext" id="q-text"></p>
+  <div class="card-list">
 
-    <div class="choices">
-      <button class="choice yes" id="btn-yes" aria-pressed="false">は　い</button>
-      <button class="choice no"  id="btn-no"  aria-pressed="false">いいえ</button>
-    </div>
-
-    <div class="reveal">
-      <button class="btn-reveal" id="btn-reveal">解説を見る</button>
-      <div class="answer" id="q-answer" hidden>
-        <div class="lbl">解 説</div>
-        <p id="q-answer-text"></p>
+    <a class="card case" href="事例１_ビールかけちゃった事件.html">
+      <div class="card-inner">
+        <div class="number">1</div>
+        <div class="card-text">
+          <div class="card-title">ビールかけちゃった事件</div>
+          <div class="card-desc">初期対応の誤りから重大なクレームへ発展した事例</div>
+        </div>
       </div>
-    </div>
+      <div class="arrow">›</div>
+    </a>
 
-    <div class="nav">
-      <button class="btn btn-ghost" id="btn-prev">← 前へ</button>
-      <span class="spacer"></span>
-      <button class="btn btn-primary" id="btn-next">次の質問へ →</button>
-    </div>
+    <a class="card case" href="事例２_食事がまずい事件.html">
+      <div class="card-inner">
+        <div class="number">2</div>
+        <div class="card-text">
+          <div class="card-title">食事がまずい事件</div>
+          <div class="card-desc">一言の発言から理不尽なクレームへ発展した事例</div>
+        </div>
+      </div>
+      <div class="arrow">›</div>
+    </a>
+
+    <a class="card case" href="事例３_髪の毛混入事件.html">
+      <div class="card-inner">
+        <div class="number">3</div>
+        <div class="card-text">
+          <div class="card-title">髪の毛混入事件</div>
+          <div class="card-desc">会話のすれ違いによりクレームが拡大した事例</div>
+        </div>
+      </div>
+      <div class="arrow">›</div>
+    </a>
+
+    <a class="card case" href="事例４_コンビニ嫌がらせ事件.html">
+      <div class="card-inner">
+        <div class="number">4</div>
+        <div class="card-text">
+          <div class="card-title">コンビニ嫌がらせ事件</div>
+          <div class="card-desc">マニュアル対応でも発生するハラスメント</div>
+        </div>
+      </div>
+      <div class="arrow">›</div>
+    </a>
+
   </div>
 
-  <div class="quit"><button id="btn-quit">中断して結果を見る</button></div>
-</section>
-
-<!-- ===================== 結果 ===================== -->
-<section id="s-result" class="screen">
-  <div class="hero" style="padding-top:34px">
-    <p class="eyebrow">RESULT</p>
-    <h2 style="font-size:26px" id="r-title">チェック結果</h2>
-    <div class="rule"></div>
+  <!-- 番外編 -->
+  <div class="section-label">
+    <span class="label-badge extra-badge">番外編</span>
+    <div class="label-line"></div>
   </div>
 
-  <div class="score">
-    <div class="cap">「はい」と答えた項目</div>
-    <p class="num"><span id="r-count">0</span><small>／ <span id="r-denom">52</span> 項目</small></p>
-    <span class="band" id="r-band" data-lv="1">－</span>
-    <p class="msg" id="r-msg"></p>
-    <div class="plusbox" id="r-plus" hidden>
-      加点事由（信頼関係につながる行動）に「はい」と答えた項目：<b id="r-plus-n">0</b> ／ <span id="r-plus-d">3</span>
-      <div style="font-size:13px;margin-top:6px">日ごろから部下との信頼関係が築けている場合、多少厳しい指導であってもパワハラに当たらないと判断されることがあります。</div>
-    </div>
+  <div class="card-list">
+    <a class="card extra" href="20260831_ハラスメントチェックシート.html">
+      <div class="card-inner">
+        <div class="icon-wrap extra-icon">✓</div>
+        <div class="card-text">
+          <div class="card-title">社内ハラスメント おさらいチェック</div>
+          <div class="card-desc">職場でのハラスメントについて、基本事項をチェックリスト形式で振り返ります</div>
+        </div>
+      </div>
+      <div class="arrow">›</div>
+    </a>
   </div>
 
-  <div class="card">
-    <h3>分類別の内訳</h3>
-    <div class="bars" id="r-bars"></div>
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    特定社会保険労務士　土橋　豪
+    <span>「短時間集中！45分で学ぶ令和のハラスメント対策」研修資料</span>
+  </footer>
 
-  <div class="card">
-    <h3>「はい」と答えた項目と解説</h3>
-    <div class="hitlist" id="r-hits"></div>
-  </div>
-
-  <div class="card" id="r-plus-card" hidden>
-    <h3>加点事由</h3>
-    <div class="hitlist" id="r-plushits"></div>
-  </div>
-
-  <details class="card" style="padding-bottom:14px">
-    <summary style="cursor:pointer;font-weight:700;font-size:15px;letter-spacing:.04em">全問の解説を見る</summary>
-    <div class="hitlist" id="r-all" style="margin-top:16px"></div>
-  </details>
-
-  <div class="note">
-    <strong>結果の見方</strong><br>
-    該当した項目数の多い・少ないでハラスメントの有無が決まるわけではありません。「はい」と答えた項目の解説を読み、ご自身の言動を振り返るきっかけとしてご活用ください。判断に迷う事案は、個別に専門家へご相談ください。
-  </div>
-
-  <div class="actions">
-    <button class="btn btn-primary" id="btn-list">解説付き一覧を出力する</button>
-    <button class="btn btn-ghost" id="btn-other">もう一方のチェックを受ける</button>
-    <button class="btn btn-ghost" id="btn-home">最初に戻る</button>
-  </div>
-</section>
-
-<!-- ===================== 解説付き一覧（出力用） ===================== -->
-<section id="s-list" class="screen">
-  <div class="listctl">
-    <div class="seg">
-      <button class="segbtn active" data-mode="hit">「はい」の項目のみ</button>
-      <button class="segbtn" data-mode="all">全問</button>
-    </div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <button class="btn btn-primary" id="btn-list-print">印刷／PDF保存</button>
-      <button class="btn btn-ghost" id="btn-list-back">結果に戻る</button>
-    </div>
-  </div>
-
-  <div class="sheet">
-    <div class="sheet-head">
-      <p class="sh-title">職場環境チェックリスト　<span id="l-set">パワハラ編</span></p>
-      <p class="sh-sub">解説付き 回答一覧</p>
-      <table class="sh-meta">
-        <tr>
-          <th>実施日</th><td id="l-date">－</td>
-          <th>氏名</th><td><input class="nameinput" id="l-name" type="text" placeholder="（任意）"></td>
-        </tr>
-        <tr>
-          <th>「はい」の項目</th><td id="l-count">－</td>
-          <th>表示範囲</th><td id="l-mode">－</td>
-        </tr>
-      </table>
-    </div>
-    <div id="l-rows"></div>
-    <p class="sheet-foot">
-      該当した項目数の多い・少ないでハラスメントの有無が決まるわけではありません。「はい」と答えた項目の解説を読み、ご自身の言動を振り返るきっかけとしてご活用ください。判断に迷う事案は、個別に専門家へご相談ください。<br>
-      本資料は自己点検を目的とした社内配布用資料です。無断転載・二次配布はご遠慮ください。
-    </p>
-  </div>
-</section>
-
-<p class="foot">
-  職場環境チェックリスト（ハラスメント自己点検）<br>
-  本資料は自己点検を目的とした社内配布用資料です。無断転載・二次配布はご遠慮ください。
-</p>
 </div>
-
-<script>
-const DATA = {
- "power": [
-  {
-   "no": 1,
-   "q": "部下を60分以上連続で指導したことがある",
-   "cat": "指導方法",
-   "a": "これ自体はパワハラに当たらない場合も当然多いが、60分以上指導している場合は同じことを繰り返していたり、感情的な指導を行っている可能性があります。長時間の指導を行う方にパワハラの傾向がみられます。"
-  },
-  {
-   "no": 2,
-   "q": "部下を立たせたまま指導をすることがよくある",
-   "cat": "指導方法",
-   "a": "これ自体はパワハラに当たらない場合も当然多いが、立たせたまま周りが見ている・聞いている中で指導をすることは問題となります。"
-  },
-  {
-   "no": 3,
-   "q": "部下を指導する際、机を叩いたことがある",
-   "cat": "指導方法",
-   "a": "感情的になりすぎている証拠となります。要注意の兆候です。"
-  },
-  {
-   "no": 4,
-   "q": "部下を指導する際、物を投げたことがある",
-   "cat": "指導方法",
-   "a": "この行為１回でパワハラが成立してしまいます、刑法上の暴行罪が成立します。"
-  },
-  {
-   "no": 5,
-   "q": "部下を指導する時は、ほとんどの場合個室ではなく一般オフィスで行う",
-   "cat": "指導方法",
-   "a": "最近の傾向として、周りの同僚が見ている・聞いている中で指導を受ける・叱責を受けることを苦痛に感じる事例が増えています。個室に移動して指導注意をするよう心がけてください。"
-  },
-  {
-   "no": 6,
-   "q": "指導メールには同じ部署全員や他部署関係者をCCに入れる",
-   "cat": "指導方法",
-   "a": "侮辱的な対応であると受け取られかねません。過去に同様の事例で不法行為が認められた裁判例があります。ご注意ください。"
-  },
-  {
-   "no": 7,
-   "q": "「◯さんはパワハラよくしますからね」「それパワハラですよ」と冗談を言われたことがある",
-   "cat": "周囲の反応",
-   "a": "実はやんわりと周りが注意をしていることが考えられます。このような場合はパワハラ予備軍と思われますのでご注意ください。「パワハラ」を「セクハラ」に置き換えても同じです。"
-  },
-  {
-   "no": 8,
-   "q": "「その指導行き過ぎではないか」「厳しい指導は程々にしたほうが良いのではないか」と同僚や上司から言われたことがある",
-   "cat": "周囲の反応",
-   "a": "７と同様に注意喚起を受けている場合が考えられます。ご注意ください。"
-  },
-  {
-   "no": 9,
-   "q": "部下を指導して部下が泣いたことがある",
-   "cat": "関連発生事実",
-   "a": "かなり危険な状態です。特段の事情が無い限り、一般的に大人が指導を受けて泣くことは考えられません。パワハラを行っている可能性が高いと考えられます。たまたま、相手が被害申告をしなかっただけの場合が多いです。"
-  },
-  {
-   "no": 10,
-   "q": "部下を「お前」と呼んだことがある",
-   "cat": "日常行動",
-   "a": "冗談や親しみのつもりでも、相手は軽視されたと受け取る可能性があります。不適切と判断されやすいため、「さん」「君」など一般的な呼称を使うよう注意が必要です。"
-  },
-  {
-   "no": 11,
-   "q": "部下に対して（ニュアンスは別として）「バカ」「アホ」「死ね」「クズ」と言ったことがある",
-   "cat": "日常行動",
-   "a": "人格を否定する発言であり、パワハラに直結します。軽い気持ちであっても相手を深く傷つけるため、絶対に避けるべき言動です。"
-  },
-  {
-   "no": 12,
-   "q": "部下に対して「給料泥棒」「君は会社にとって不要の存在だ」「役に立たない」等の発言をしたことがある",
-   "cat": "指導方法",
-   "a": "人格非難と判断される可能性があります。"
-  },
-  {
-   "no": 13,
-   "q": "部下が精神疾患に罹患したことがある",
-   "cat": "関連発生事実",
-   "a": "あくまでパワハラ以外の理由で精神疾患に罹患した可能性のほうが高いと考えられます。しかし、何名も、もしくは頻繁に部下が精神疾患に罹患しているのであれば、何らかのパワハラ行為を行っている可能性があるのでご注意してください。"
-  },
-  {
-   "no": 14,
-   "q": "配属３カ月以内に部下が退職したことがある",
-   "cat": "関連発生事実",
-   "a": "当然配属3ヶ月以内に部下が退職したとしてもパワハラが理由とは限りません。しかし、何名も、配属後に部下が退職しているような場合はパワハラを行っている可能性も考えられますのでご注意してください。"
-  },
-  {
-   "no": 15,
-   "q": "部下の病状や休職理由について、本人の同意なく他の社員に伝えたことがある",
-   "cat": "日常行動",
-   "a": "パワハラ（個の侵害）に該当する可能性が極めて高い行為です。 病気に関する情報は『要配慮個人情報』であり、本人の同意なく共有することはプライバシーの侵害にあたります。良かれと思って行った場合でも、本人に精神的苦痛を与え、職場への不信感を招く原因となります。"
-  },
-  {
-   "no": 16,
-   "q": "休日に（休日中に対応が必要な）仕事のメール・チャットや電話を部下に行うことがある",
-   "cat": "日常行動",
-   "a": "これ自体はパワハラに当たらない場合が多いと考えられます。しかし、部下の都合を顧みずに業務上の指示等を行っている可能性が高く、常態化している場合はハラスメントだけでなく未払い給与が生じている危険性があるのでご注意ください。"
-  },
-  {
-   "no": 17,
-   "q": "飲酒は鍛えれば（飲む量を増やせば）飲めるようになると思う",
-   "cat": "考え",
-   "a": "パワハラというよりもアルコール・ハラスメントにつながる考えです。しかし、同時に仕事においてもキャパ以上の行為や結果を求めるという点では共通点があり、無意識にパワハラを行っている可能性があるのでご注意ください。"
-  },
-  {
-   "no": 18,
-   "q": "部下の私生活について注意をすることがある",
-   "cat": "考え",
-   "a": "良かれと思って注意をし始めたら、徐々にエスカレートをして私生活への過度な干渉になっている可能性があります。ご注意ください。もちろん、「早寝早起きを心がけるように」等の業務とも関連する、一般的な内容であれば問題ありません。"
-  },
-  {
-   "no": 19,
-   "q": "仕事は上司から盗んで覚えるものだ",
-   "cat": "考え",
-   "a": "指導方法として間違いとは言い切れませんが、部下に指導しない・教育しないことの裏返しでもあり、指導教育せず放置しておきながら成果が出ないと叱責する。というパワハラ行為につながりかねません。"
-  },
-  {
-   "no": 20,
-   "q": "「パワハラ」被害等を主張する若者の考えについては正直理解ができない",
-   "cat": "考え",
-   "a": "もしかしたら自分（上司）に原因があるかもしれない。という気持ちをもってください。ハラスメント防止の第一歩は自覚です。常に周囲の意見に耳を傾け自問自答することが大事です。"
-  },
-  {
-   "no": 21,
-   "q": "部下に意欲や能力が無いと感じることが多い",
-   "cat": "考え",
-   "a": "そのように感じる場合、自分の指導方法や環境に原因がある可能性を疑うことが重要です。原因を一方的に部下に求める姿勢は、パワハラにつながります。"
-  },
-  {
-   "no": 22,
-   "q": "部下が自分に対して反論や異論を述べたことはほとんどない",
-   "cat": "関連発生事実",
-   "a": "反論しないから必ずしも自分の意見に周囲が納得しているとは限りません。言っても無駄、言うと何をされるか分からないと考えているかもしれません。反論が「ない」ではなく「できない」場合には注意が必要です。"
-  },
-  {
-   "no": 23,
-   "q": "正直、「パワハラ」等の言葉が無かった昔の時代の方が良かったと思う",
-   "cat": "考え",
-   "a": "どこかに「悪いのは部下、甘えているのは部下」という気持ちがあるのかもしれません。時計の針は逆には戻りません。自分自身を時代に合わせていくしかありません。"
-  },
-  {
-   "no": 24,
-   "q": "部下については義務を果たしてから権利（有給休暇、残業代等）を主張してほしい",
-   "cat": "考え",
-   "a": "よく聞く言葉です。しかし、この考え方は「法律上」は通用しませんし、現代の「感覚」にも馴染みません。無理な残業を強制する、有給休暇を取得させない、などのハラスメント行動に繋がる可能性があります。"
-  },
-  {
-   "no": 25,
-   "q": "部下を褒めると現状で満足してしまうので褒めることはしない",
-   "cat": "考え",
-   "a": "この考え自体誤りとは言い切れません。しかし、ときに「認める、褒める」ことは信頼関係の構築に重要です。「上司が自分を認めてくれない」「上司から否定されている」と部下に思わせることで、日ごろの指導もパワハラに感じる可能性も出てきます。"
-  },
-  {
-   "no": 26,
-   "q": "突然退職した部下や後輩に対し損害賠償請求をしたいと思ったことがある",
-   "cat": "考え",
-   "a": "事案によりますが、このような考えをもつ根底に「退職の原因は自分にまったくない」と考えている場合が多く、無意識にハラスメントが起きていた可能性も考えられます。コミュニケーションが取れていなかったことが要因になっている可能性もあります。"
-  },
-  {
-   "no": 27,
-   "q": "退職した際に全ての有給休暇を使うことは労働法上はともかく社会常識としてどうかと思う",
-   "cat": "考え",
-   "a": "社会の変化にどの程度ついていけているかが問題です。社会通念は時代と共に変わります、それに対応していかないといけません。"
-  },
-  {
-   "no": 28,
-   "q": "彼氏や彼女がいない社員がいると心配になり「彼女（彼氏）はいるのか」と聞いたことがある",
-   "cat": "日常行動",
-   "a": "良かれと思って聞いているのでしょうが、知らず知らずに（現代では）超えてはいけない私生活の領域を踏み越えていることの表れです。パワハラ（私生活の過度の介入）につながる場合もあります。もちろんセクハラに繋がる内容でもあります。ハラスメント気質が高い方はこのあたりの質問をする傾向にあります。"
-  },
-  {
-   "no": 29,
-   "q": "労働法上はともかく男性の育休はやはり理解できない",
-   "cat": "考え",
-   "a": "育児休業は男女を問わず認められた権利です。「理解できない」という意識はハラスメント的発言や差別につながります。"
-  },
-  {
-   "no": 30,
-   "q": "子供を産んでいない社員がいると心配になり「子供はどうするの」と聞いたことがある",
-   "cat": "日常行動",
-   "a": "個人の人生設計や価値観に関わることであり、プライベートへの過度な介入です。パワハラ・セクハラに該当する可能性が高いため避けるべきです。"
-  },
-  {
-   "no": 31,
-   "q": "上司の飲みの誘いを断るのは悪いとは言わないが常識に欠けていると思う",
-   "cat": "考え",
-   "a": "飲み会の参加は任意であり、断ることは自由です。「常識」として強制する姿勢は、パワハラや不利益取扱いにつながります。"
-  },
-  {
-   "no": 32,
-   "q": "部下や後輩に反省・謝罪文や反省・謝罪メールを書かせたことがある",
-   "cat": "指導方法",
-   "a": "これ自体はパワハラに当たりません。反省・謝罪文も必要な場合も当然あります。しかし、ハラスメント気質が高い会社や上司に、反省文や謝罪文を必要以上に書かせる傾向がみられるので「程度」に注意が必要です。"
-  },
-  {
-   "no": 33,
-   "q": "成果の出ない営業職員の外回りの交通費やガソリン代はもったいないと感じることがある",
-   "cat": "考え",
-   "a": "独善性に関する質問です。「自分が一番能力が高い」＋「周りはダメ人間ばかりだ」と考えている場合、独善的になっていることが考えられます（必ずしもそうではない）、パワハラの背景につながる傾向にあります。"
-  },
-  {
-   "no": 34,
-   "q": "やる気が無い従業員は会社を辞めた方がよいと思う",
-   "cat": "考え",
-   "a": "「不要」という決め付けは独善的で、職場の人間関係を悪化させます。指導や育成の放棄となり、パワハラ的な態度につながります。"
-  },
-  {
-   "no": 35,
-   "q": "会社主催の飲み会に来ないのは協調性が無い証拠だと思う",
-   "cat": "考え",
-   "a": "飲み会参加の有無で協調性を判断するのは誤りです。強制や評価の基準にすると、パワハラ的な圧力となります。"
-  },
-  {
-   "no": 36,
-   "q": "部下や後輩にコーヒーやお菓子を自分の代わりに買いに行ってもらうことがよくある",
-   "cat": "日常行動",
-   "a": "忙しい場合はやむを得ないこともありますが、頻繁に買いにいかせるような場合は部下を便利な存在、言えば何でもやってもらえると知らず知らずのうちに考えている場合が多く、パワハラ問題が起きやすい環境にあります。"
-  },
-  {
-   "no": 37,
-   "q": "部下や後輩をこれまで一度も感情的な指導をしたことがない",
-   "cat": "信用性",
-   "a": "本心で答えているか否かを確認するための質問です。\n例外もありますが仕事上指導を行ううえで感情的になったことが「絶対にない」と言い切れることは少ないです。管理職としての指導を怠っていないか？といった別の視点も生じます。"
-  },
-  {
-   "no": 38,
-   "q": "性別や国籍、人種などによる適性の差はあると思う",
-   "cat": "考え",
-   "a": "思い込み、固定観念、過信、これがパワハラ加害者の方に共通する特徴とも言えます。悪いこととは限りませんが、こと部下の指導の面では行き過ぎた行為に走りやすい。「こいつはだめな奴だ」「使えない奴だ」と思い込み、パワハラ指導に至りやすいです。\n近年話題の「アンコンシャス・バイアス」にも通ずるものです。"
-  },
-  {
-   "no": 39,
-   "q": "業績が良い人は何をやってもできる人だと思う",
-   "cat": "考え",
-   "a": "「業績＝万能」という思い込みは危険です。偏見に基づく評価は、他の社員を不当に扱うことにつながり、パワハラの温床になります。"
-  },
-  {
-   "no": 40,
-   "q": "第一印象でその人の人となりは大体分かるものである",
-   "cat": "考え",
-   "a": "第一印象に依存するのは固定観念であり、アンコンシャス・バイアスの一種です。思い込みに基づく判断は適切な指導を妨げ、パワハラ的態度を生みやすくなります。"
-  },
-  {
-   "no": 41,
-   "q": "ハラスメントについては「我が社はない」と言い切れる",
-   "cat": "信用性",
-   "a": "「ない」と断言するのは危険です。多くの場合、見えにくい形で存在します。自覚を持ち、常に点検する姿勢が必要です。"
-  },
-  {
-   "no": 42,
-   "q": "私はパワハラを絶対にしない自信がある",
-   "cat": "信用性",
-   "a": "「絶対にしない」と断言することは自己過信につながり、無意識の行為を見落とす危険があります。自覚と振り返りが防止の第一歩です。"
-  },
-  {
-   "no": 43,
-   "q": "自分は論理的だと思う",
-   "cat": "考え",
-   "a": "「論理的」との自己評価に依存すると、他者の意見を軽視する傾向が生じます。思い込みが強くなると、相手を頭ごなしに否定し、パワハラ的態度につながることがあります。"
-  },
-  {
-   "no": 44,
-   "q": "自分より能力が低い人が自分より高い給料をもらっていると感じることがある",
-   "cat": "考え",
-   "a": "不満は自然ですが、それを部下や同僚への攻撃や差別につなげるのは不適切です。独善的な思考に陥るとパワハラの温床になります。"
-  },
-  {
-   "no": 45,
-   "q": "部下を指導中に反論されるとイライラしてしまう",
-   "cat": "考え",
-   "a": "反論を受け入れられない姿勢は、部下の意見表明を妨げます。「言えない雰囲気」を生み、パワハラ的な指導につながるため注意が必要です。"
-  },
-  {
-   "no": 46,
-   "q": "同僚が上司に怒られていても気にならない",
-   "cat": "考え",
-   "a": "事案によるが、パワハラが蔓延していると感覚が麻痺して、他の同僚が怒られていても気にならなくなることがあります。"
-  },
-  {
-   "no": 47,
-   "q": "自分より早く帰宅する部下は社会人としてどうかと思う",
-   "cat": "考え",
-   "a": "退勤時間は労働契約や就業規則に基づいて決まっており、早く帰宅しても問題はありません。「社会人としてどうか」という評価は誤りであり、押し付けるとパワハラにつながります。"
-  },
-  {
-   "no": 48,
-   "q": "社内にパワハラ（セクハラ）で有名な社員・役員がいる",
-   "cat": "関連発生事実",
-   "a": "パワハラやセクハラで有名な社員や役員がいるのに放置をしているとも解釈できます。そのような環境では当然パワハラやセクハラが起きやすい組織風土と言えます。"
-  },
-  {
-   "no": 49,
-   "q": "自分の指導が部下に伝わっていないと感じることがある",
-   "cat": "周囲の反応",
-   "a": "これ自体パワハラにすぐ結びつくものではありませんが、具体性を欠く感情的な指導などを行っていると意図がなかなか伝わりづらく、「教えているはず」という主観と「伝わっていない」「理解していない」という客観的事実のズレが起きやすいです。親が怒鳴って子供に勉強を教える場合と似ています。"
-  },
-  {
-   "no": 50,
-   "q": "部下から相談される（または、部下から食事や飲み会の誘いを受ける）",
-   "cat": "加点事由",
-   "a": "加点事由です。日ごろから部下へ感謝の気持ちを示したり、自分の間違いを素直に認めているような場合は、部下との信頼関係も築けており、多少厳しい指導をしたとしてもパワハラに当たらない場合があります（前後の事実関係も重要）。"
-  },
-  {
-   "no": 51,
-   "q": "部下に「ありがとう」などの感謝を伝えることが多い",
-   "cat": "加点事由",
-   "a": "感謝を伝えることは信頼関係を強め、健全な職場環境を作ります。上司が感謝を表すことで、日常の指導も受け入れられやすくなります。"
-  },
-  {
-   "no": 52,
-   "q": "自分が間違えていた場合、部下に「自分が間違っていた」と認めたことがある",
-   "cat": "加点事由",
-   "a": "自分の誤りを素直に認める姿勢は、部下からの信頼を高めます。厳しい指導を行ってもパワハラと受け止められにくくなるため、重要な行動です。"
-  },
-  {
-   "no": 53,
-   "q": "部下の誤字を見つけるとイライラする",
-   "cat": "日常行動",
-   "a": "誤字があると怒鳴りつける人もいます。程度問題はあるがパワハラをする人は誤字に非常に厳しい。（細かいことに必要以上に厳しい）"
-  },
-  {
-   "no": 54,
-   "q": "納期が近づいても部下に任せて先に帰宅することがよくある",
-   "cat": "考え",
-   "a": "これ自体はパワハラに当たらない場合も多いが、実際のパワハラ自殺事案では上司からの助けもなく、厳しく叱咤されるのみで長時間労働が原因で自殺している事案もあります。"
-  },
-  {
-   "no": 55,
-   "q": "台風が会社付近を直撃しても電車が動いていれば（道路が通行できるのであれば）出勤するべきだ／納期に間に合うため徹夜が必要ならば徹夜をするべきだ",
-   "cat": "考え",
-   "a": "無理を強いる考えが背景にあり、パワハラ等の行動につながっている可能性がある。"
-  }
- ],
- "sexual": [
-  {
-   "no": 1,
-   "q": "業務で励ますつもりで異性の肩に手を置く程度ならセーフだと思う",
-   "cat": "身体的接触",
-   "a": "肩を触る行為は典型的なセクハラの一つです。いまだに軽く考えられがちですが、明確にアウトです。"
-  },
-  {
-   "no": 2,
-   "q": "職場で異性の腕に触れるくらいなら問題ないと思う",
-   "cat": "身体的接触",
-   "a": "業務上、腕を触る必要性はほぼありません。無意識に行っているケースが多いため要注意です。"
-  },
-  {
-   "no": 3,
-   "q": "職場で下ネタを言うのはコミュニケーションの一環だと思う",
-   "cat": "性的発言",
-   "a": "コミュニケーションのつもりでも、下ネタは不快感を与える可能性が高いです。"
-  },
-  {
-   "no": 4,
-   "q": "下ネタは場合によっては場を盛り上げることがあると思う",
-   "cat": "性的発言",
-   "a": "善意であるかどうかは関係ありません。盛り上げ目的でも、ハラスメントとなるためリスクが高いです。"
-  },
-  {
-   "no": 5,
-   "q": "下ネタが平気な部下もいるので相手によっては許されることがある",
-   "cat": "性的発言",
-   "a": "ハラスメントは当事者間で決まるものではなく、社会通念上で判断されます。環境型という類型もあることに注意が必要です。"
-  },
-  {
-   "no": 6,
-   "q": "「かわいい」「美人」「イケメン」などの言葉を職場で使うことがある",
-   "cat": "性的発言",
-   "a": "好意的なつもりでも、外見へのコメントは相手や周囲に不快感を与える可能性があるため、職場ではNGです。"
-  },
-  {
-   "no": 7,
-   "q": "職場で自分自身の恋愛経験を話したことがある",
-   "cat": "性的発言",
-   "a": "自分自身の体験談であっても、職場では性的話題は不適切であり、不快に感じる人が多いです。"
-  },
-  {
-   "no": 8,
-   "q": "セクハラは相手が嫌がらなければ成立しないと思う",
-   "cat": "価値観・偏見",
-   "a": "ハラスメントは当事者間で決まるものではなく、社会通念上で決定します。環境型という類型もあることに注意が必要です。"
-  },
-  {
-   "no": 9,
-   "q": "相手によっては体型についてからかって、場が和むことがある",
-   "cat": "性的発言",
-   "a": "体型に関するからかいは、不快に感じている人が多く、配慮不足な言動です。"
-  },
-  {
-   "no": 10,
-   "q": "職場で自虐的な内容（年齢や外見、結婚など）をネタにして話すことがある",
-   "cat": "価値観・偏見",
-   "a": "自分自身に関する自虐であっても、同じ特徴を持つ人にとっては間接的な嫌がらせになる可能性があるため注意が必要です。また、自虐であっても、他人の価値観や状況を間接的に揶揄する結果になることがあるため要注意です。"
-  },
-  {
-   "no": 11,
-   "q": "「それセクハラですよ」と軽く指摘されたことがある",
-   "cat": "性的発言",
-   "a": "「軽い」というのがポイントです。軽くでも指摘されている時点でかなり要注意です。多くは黙認されるため、指摘は貴重なものと認識すべきです。"
-  },
-  {
-   "no": 12,
-   "q": "「それセクハラだぞ」と軽く上司に注意されたことがある",
-   "cat": "性的発言",
-   "a": "すでにアウトであり、さらに職場にセクハラが蔓延している可能性があります。"
-  },
-  {
-   "no": 13,
-   "q": "異性の部下に彼氏や彼女がいるかどうか聞くのは、コミュニケーションの範囲内だと思う",
-   "cat": "公私混同",
-   "a": "流れ（自分から）によっては大丈夫な場合もありますが、自分からプライベートに踏み込むのは原則としてNGです。"
-  },
-  {
-   "no": 14,
-   "q": "結婚はなるべく若いときにしたほうがよいと思う",
-   "cat": "価値観・偏見",
-   "a": "偏見（アンコンシャスバイアス）について、「偏見＝価値観の相違」自体は問題ありませんが、それを押し付けるとNGです。"
-  },
-  {
-   "no": 15,
-   "q": "出産はなるべく若いときにしたほうがよいと思う",
-   "cat": "価値観・偏見",
-   "a": "偏見（アンコンシャスバイアス）について、「偏見＝価値観の相違」自体は問題ありませんが、それを押し付けるとNGです。"
-  },
-  {
-   "no": 16,
-   "q": "結婚適齢期は確かに存在すると思う",
-   "cat": "価値観・偏見",
-   "a": "偏見（アンコンシャスバイアス）について、「偏見＝価値観の相違」自体は問題ありませんが、それを押し付けるとNGです。"
-  },
-  {
-   "no": 17,
-   "q": "異性の部下（同僚）に対して業務に関係なくLINEの交換を求めたことがある",
-   "cat": "公私混同",
-   "a": "連絡先交換を強いるのは典型的な相談事例です。"
-  },
-  {
-   "no": 18,
-   "q": "異性の部下（同僚）に仕事とは関係のないLINEを送ったことがある",
-   "cat": "公私混同",
-   "a": "仕事と無関係な私的な連絡は、相手にとって負担になるリスクが高いです。"
-  },
-  {
-   "no": 19,
-   "q": "異性の部下（同僚）と二人で飲酒を伴う食事をしたことがある",
-   "cat": "公私混同",
-   "a": "飲酒が絡むのは大きなポイントです。セクハラの多くは飲酒に関連しています。"
-  },
-  {
-   "no": 20,
-   "q": "異性の部下（同僚）と二人でアルコールが入った状態でタクシーに乗ったことがある",
-   "cat": "公私混同",
-   "a": "相談事例としてもっとも多いシチュエーションであり、NO.1と言ってよいです。"
-  },
-  {
-   "no": 21,
-   "q": "部下や同僚のSNSを本人の許可なく見たり、投稿を職場で話題にしたことがある",
-   "cat": "公私混同",
-   "a": "SNSの閲覧自体は問題ありませんが、その投稿内容を本人の意図に反して職場で話題にする行為は、プライバシーの侵害や公私混同として問題視されるリスクが高いです。"
-  },
-  {
-   "no": 22,
-   "q": "もてない人間が勘違いをしてセクハラ加害者になりがちだ",
-   "cat": "価値観・偏見",
-   "a": "「はい」と答えた人は要注意です。「自分はモテる」と思い込んでいる可能性が考えられます。さらに、仮に当たっていたとしても、セクハラはモテる・モテないの問題ではありません。その自己認識の甘さや過信こそがセクハラ予備軍の典型的な特徴です。 ※疑似恋愛型セクハラ"
-  },
-  {
-   "no": 23,
-   "q": "歳が離れても既婚上司と部下との恋愛関係は成立すると思う",
-   "cat": "価値観・偏見",
-   "a": "よくある勘違いです。ありえないとは言いませんが、ごくごく少数であり、この誤解がセクハラを生みます。 ※疑似恋愛型セクハラ"
-  },
-  {
-   "no": 24,
-   "q": "同性同士の会話であれば異性の顧客や部下の容姿について論評しても構わない",
-   "cat": "性的発言",
-   "a": "同性間でも容姿に関するコメントは不快に感じる人がいるため注意が必要です。（例：営業先の〇〇さんはスタイルいいね～など ×）"
-  },
-  {
-   "no": 25,
-   "q": "昨今のハラスメントなどに関するコンプライアンス重視の社会には違和感がある",
-   "cat": "価値観・偏見",
-   "a": "ちょっと厳しめの質問です。違和感を持つ人もいますが、それがハラスメントの温床になる可能性があります。"
-  },
-  {
-   "no": 26,
-   "q": "昭和の時代の方が大らかで良かった",
-   "cat": "価値観・偏見",
-   "a": "昭和が大らかだったのではなく、セクハラへの意識が低く、被害が無視されていただけです。"
-  },
-  {
-   "no": 27,
-   "q": "部下や同僚を「○○ちゃん」と呼ぶのは、親しみを表す良い方法だと思う",
-   "cat": "公私混同",
-   "a": "これだけでセクハラとは言いませんが、「ちゃん」付けの多さは傾向の現れです。"
-  },
-  {
-   "no": 28,
-   "q": "社内にセクハラで有名な人間がいる",
-   "cat": "職場環境・文化",
-   "a": "その組織がセクハラを許容している証拠ともいえます（自分も知らずにやっている可能性があります）。"
-  },
-  {
-   "no": 29,
-   "q": "職場で性的マイノリティ（LGBTQ+）に関する冗談や話題を出したことがある",
-   "cat": "職場環境・文化",
-   "a": "性的マイノリティへの配慮を欠いた言動は、重大なハラスメントになる可能性があるため厳禁です。"
-  },
-  {
-   "no": 30,
-   "q": "ハラスメントがうるさくなると部下とまともな会話ができなくなる",
-   "cat": "価値観・偏見",
-   "a": "「ハラスメントに配慮すると話せない」というのは、自分が問題のある発言をしていると認めているのと同じです。"
-  },
-  {
-   "no": 31,
-   "q": "接待の席では関係のない女子社員でも同席したほうが場が和むと思う",
-   "cat": "職場環境・文化",
-   "a": "まさにフジテレビ問題です（なかには女子社員のためにもなっていると思っている可能性もあります）。"
-  },
-  {
-   "no": 32,
-   "q": "女性からお酌をしてもらったほうが男性としては嬉しいと思う",
-   "cat": "価値観・偏見",
-   "a": "性別役割分業の押し付けは、現代では問題視されます。"
-  },
-  {
-   "no": 33,
-   "q": "飲み会では来賓の隣に若い女性を配置したほうが場の雰囲気が良くなると思う",
-   "cat": "職場環境・文化",
-   "a": "性差別的な古い慣習であり、ハラスメントと指摘される典型例です。"
-  },
-  {
-   "no": 34,
-   "q": "会社の飲み会に女性社員の参加者が少ない",
-   "cat": "職場環境・文化",
-   "a": "飲み会に女性社員が少ないのは、職場環境に問題があり、女性が参加したくない雰囲気になっている証拠です。"
-  },
-  {
-   "no": 35,
-   "q": "社員旅行に女性社員の参加者が少ない",
-   "cat": "職場環境・文化",
-   "a": "社員旅行に女性社員が少ないのは、職場内でハラスメントや居心地の悪さが発生している可能性が高いです。"
-  }
- ]
-};
-
-const SETS = {
-  power:  {name:"パワハラ編", plusCat:"加点事由",
-           bands:[[0,4],[5,12],[13,9999]],
-           msgs:[
-             "現時点で該当する項目は少なめです。とはいえ、ハラスメントは無自覚のうちに起こります。「はい」と答えた項目の解説を確認し、今の姿勢を続けてください。",
-             "いくつか見直したい項目があります。それぞれの行為が単独で直ちにパワハラになるとは限りませんが、重なると問題になりやすい要素です。該当項目の解説をご確認ください。",
-             "該当項目が多くなっています。無自覚のまま相手を追い込んでいる可能性があります。該当項目の解説を一つずつ確認し、指導方法と考え方の両面から見直すことをおすすめします。"
-           ]},
-  sexual: {name:"セクハラ編", plusCat:null,
-           bands:[[0,2],[3,8],[9,9999]],
-           msgs:[
-             "現時点で該当する項目は少なめです。セクハラは受け手や周囲の受け止め方で判断されます。「はい」と答えた項目の解説を確認し、今の姿勢を続けてください。",
-             "いくつか見直したい項目があります。悪意がなくても、価値観の押し付けや私生活への踏み込みはセクハラと受け取られます。該当項目の解説をご確認ください。",
-             "該当項目が多くなっています。「相手が嫌がらなければよい」「親しみの表現だ」といった認識が、セクハラの入口になっている可能性があります。該当項目の解説を一つずつご確認ください。"
-           ]}
-};
-const BAND_LABEL = ["現状を維持しましょう", "見直しの余地があります", "重点的な見直しが必要です"];
-
-let setKey = "power", items = [], idx = 0, ans = [];
-let listMode = "hit", lastN = 0, lastDenom = 0;
-
-const $ = function(id){ return document.getElementById(id); };
-const esc = function(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); };
-
-function show(id){
-  var list = document.querySelectorAll(".screen");
-  for(var i=0;i<list.length;i++) list[i].classList.remove("active");
-  $(id).classList.add("active");
-  window.scrollTo(0,0);
-}
-
-function start(key){
-  setKey = key;
-  items = DATA[key];
-  ans = new Array(items.length).fill(null);
-  idx = 0;
-  document.body.dataset.theme = key;
-  $("q-setname").textContent = SETS[key].name;
-  $("q-total").textContent = items.length;
-  render();
-  show("s-quiz");
-}
-
-function render(){
-  var it = items[idx];
-  var isPlus = (it.cat === SETS[setKey].plusCat);
-  $("q-cur").textContent = idx + 1;
-  $("q-no").textContent = it.no;
-  $("q-cat").textContent = it.cat;
-  $("q-cat").className = "tag" + (isPlus ? " plus" : "");
-  $("q-text").textContent = it.q;
-  $("q-fill").style.width = (idx / items.length * 100) + "%";
-
-  $("btn-yes").setAttribute("aria-pressed", ans[idx] === true);
-  $("btn-no").setAttribute("aria-pressed", ans[idx] === false);
-
-  $("q-answer").hidden = true;
-  $("q-answer").className = "answer" + (isPlus ? " plus" : "");
-  $("q-answer-text").textContent = it.a;
-  $("btn-reveal").hidden = false;
-
-  $("btn-prev").style.visibility = (idx === 0) ? "hidden" : "visible";
-  $("btn-next").textContent = (idx === items.length - 1) ? "結果を見る →" : "次の質問へ →";
-}
-
-function choose(v){
-  ans[idx] = v;
-  $("btn-yes").setAttribute("aria-pressed", v === true);
-  $("btn-no").setAttribute("aria-pressed", v === false);
-  if($("q-answer").hidden) revealAnswer();
-}
-
-function revealAnswer(){
-  $("q-answer").hidden = false;
-  $("btn-reveal").hidden = true;
-}
-
-function go(step){
-  var n = idx + step;
-  if(n < 0) return;
-  if(n >= items.length){ result(); return; }
-  idx = n;
-  render();
-}
-
-function hitHTML(it, plus){
-  return '<details class="hit' + (plus ? " plus" : "") + '">' +
-    '<summary><span class="n">Q' + it.no + '</span><span>' + esc(it.q) + '</span></summary>' +
-    '<div class="body">' + esc(it.a) + '</div></details>';
-}
-
-function result(){
-  var S = SETS[setKey];
-  var plusItems = [], mainItems = [];
-  items.forEach(function(it, i){
-    (it.cat === S.plusCat ? plusItems : mainItems).push({it:it, i:i});
-  });
-
-  var hits = mainItems.filter(function(o){ return ans[o.i] === true; });
-  var n = hits.length, denom = mainItems.length;
-  lastN = n; lastDenom = denom;
-
-  $("r-title").textContent = S.name + "　チェック結果";
-  $("r-count").textContent = n;
-  $("r-denom").textContent = denom;
-
-  var lv = 0;
-  S.bands.forEach(function(b, i){ if(n >= b[0] && n <= b[1]) lv = i; });
-  $("r-band").textContent = BAND_LABEL[lv];
-  $("r-band").dataset.lv = lv + 1;
-  $("r-msg").textContent = S.msgs[lv];
-
-  var cats = {}, order = [];
-  mainItems.forEach(function(o){
-    var c = o.it.cat;
-    if(!cats[c]){ cats[c] = {t:0, y:0}; order.push(c); }
-    cats[c].t++;
-    if(ans[o.i] === true) cats[c].y++;
-  });
-  $("r-bars").innerHTML = order.map(function(c){
-    var d = cats[c], w = d.t ? (d.y / d.t * 100) : 0;
-    return '<div class="bar"><div class="t"><span>' + esc(c) + '</span><span><b>' + d.y + '</b> / ' + d.t + '</span></div>' +
-           '<div class="g"><i style="width:' + w + '%"></i></div></div>';
-  }).join("");
-
-  $("r-hits").innerHTML = n
-    ? hits.map(function(o){ return hitHTML(o.it, false); }).join("")
-    : '<div class="empty">「はい」と答えた項目はありませんでした。</div>';
-
-  if(plusItems.length){
-    var py = plusItems.filter(function(o){ return ans[o.i] === true; });
-    $("r-plus").hidden = false;
-    $("r-plus-n").textContent = py.length;
-    $("r-plus-d").textContent = plusItems.length;
-    $("r-plus-card").hidden = false;
-    $("r-plushits").innerHTML = plusItems.map(function(o){ return hitHTML(o.it, true); }).join("");
-  } else {
-    $("r-plus").hidden = true;
-    $("r-plus-card").hidden = true;
-  }
-
-  $("r-all").innerHTML = items.map(function(it){ return hitHTML(it, it.cat === S.plusCat); }).join("");
-  $("btn-other").textContent = (setKey === "power" ? "セクハラ編" : "パワハラ編") + "を受ける";
-  show("s-result");
-}
-
-/* ---------- 解説付き一覧の出力 ---------- */
-function fmtDate(d){
-  return d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日";
-}
-
-function rowHTML(it, a, plus){
-  var yn = (a === true)  ? '<span class="yn y">はい</span>'
-         : (a === false) ? '<span class="yn n">いいえ</span>'
-         :                 '<span class="yn u">未回答</span>';
-  return '<div class="lrow' + (plus ? " plus" : "") + '">' +
-    '<div class="lhead"><span class="lno">Q' + it.no + '</span>' +
-    '<span class="lcat">' + esc(it.cat) + '</span>' + yn + '</div>' +
-    '<p class="lq">' + esc(it.q) + '</p>' +
-    '<p class="la">' + esc(it.a) + '</p></div>';
-}
-
-function buildList(){
-  var S = SETS[setKey];
-  $("l-set").textContent = S.name;
-  $("l-date").textContent = fmtDate(new Date());
-  $("l-count").textContent = lastN + " / " + lastDenom + " 項目";
-  $("l-mode").textContent = (listMode === "all")
-    ? "全" + items.length + "問"
-    : "「はい」と答えた項目のみ";
-
-  var rows = [];
-  items.forEach(function(it, i){
-    if(listMode === "all" || ans[i] === true){
-      rows.push(rowHTML(it, ans[i], it.cat === S.plusCat));
-    }
-  });
-  $("l-rows").innerHTML = rows.length
-    ? rows.join("")
-    : '<div class="empty">「はい」と答えた項目はありませんでした。「全問」に切り替えるとすべての設問と解説を出力できます。</div>';
-}
-
-function showList(){
-  buildList();
-  show("s-list");
-}
-
-var segs = document.querySelectorAll(".segbtn");
-for(var g = 0; g < segs.length; g++){
-  (function(b){
-    b.addEventListener("click", function(){
-      for(var j = 0; j < segs.length; j++) segs[j].classList.remove("active");
-      b.classList.add("active");
-      listMode = b.dataset.mode;
-      buildList();
-    });
-  })(segs[g]);
-}
-
-var picks = document.querySelectorAll(".pick");
-for(var p = 0; p < picks.length; p++){
-  (function(b){ b.addEventListener("click", function(){ start(b.dataset.set); }); })(picks[p]);
-}
-$("btn-yes").addEventListener("click", function(){ choose(true); });
-$("btn-no").addEventListener("click", function(){ choose(false); });
-$("btn-reveal").addEventListener("click", revealAnswer);
-$("btn-next").addEventListener("click", function(){ go(1); });
-$("btn-prev").addEventListener("click", function(){ go(-1); });
-$("btn-quit").addEventListener("click", function(){
-  if(confirm("ここまでの回答で結果を表示します。よろしいですか？")) result();
-});
-$("btn-list").addEventListener("click", showList);
-$("btn-list-print").addEventListener("click", function(){ window.print(); });
-$("btn-list-back").addEventListener("click", function(){ show("s-result"); });
-$("btn-home").addEventListener("click", function(){ document.body.dataset.theme = "power"; show("s-start"); });
-$("btn-other").addEventListener("click", function(){ start(setKey === "power" ? "sexual" : "power"); });
-
-document.addEventListener("keydown", function(e){
-  if(!$("s-quiz").classList.contains("active")) return;
-  if(e.key === "1") choose(true);
-  else if(e.key === "2") choose(false);
-  else if(e.key === "ArrowRight") go(1);
-  else if(e.key === "ArrowLeft") go(-1);
-});
-</script>
 </body>
 </html>
