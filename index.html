@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>カスタマーハラスメント 研修資料ポータル</title>
-  
+
 <meta name="robots" content="noindex, nofollow">
-
-
 
 <style>
 :root {
@@ -126,6 +124,10 @@ body {
   white-space: nowrap;
 }
 
+.section-label .label-badge.extra-badge {
+  background: var(--warn);
+}
+
 .section-label .label-line {
   flex: 1;
   height: 1px;
@@ -185,6 +187,12 @@ body {
 .card.case:hover .icon-wrap { background: var(--primary); color: #fff; }
 .card.case:hover .arrow     { color: var(--primary); }
 
+/* extra card accent */
+.card.extra::before { background: var(--warn); }
+.card.extra:hover   { border-color: var(--warn); }
+.card.extra:hover .icon-wrap { background: var(--warn); color: #fff; }
+.card.extra:hover .arrow     { color: var(--warn); }
+
 .card-inner {
   display: flex;
   align-items: center;
@@ -193,7 +201,7 @@ body {
   min-width: 0;
 }
 
-/* ===== ICON WRAP (review) ===== */
+/* ===== ICON WRAP ===== */
 .icon-wrap {
   flex-shrink: 0;
   width: 46px;
@@ -209,6 +217,11 @@ body {
 .icon-wrap.review-icon {
   background: #eaf6ee;
   color: var(--ok);
+}
+
+.icon-wrap.extra-icon {
+  background: #fff4df;
+  color: var(--warn);
 }
 
 /* ===== NUMBER (case) ===== */
@@ -371,6 +384,25 @@ footer span {
       <div class="arrow">›</div>
     </a>
 
+  </div>
+
+  <!-- 番外編 -->
+  <div class="section-label">
+    <span class="label-badge extra-badge">番外編</span>
+    <div class="label-line"></div>
+  </div>
+
+  <div class="card-list">
+    <a class="card extra" href="20260831_ハラスメントチェックシート.html">
+      <div class="card-inner">
+        <div class="icon-wrap extra-icon">✓</div>
+        <div class="card-text">
+          <div class="card-title">社内ハラスメント おさらいチェック</div>
+          <div class="card-desc">職場でのハラスメントについて、基本事項をチェックリスト形式で振り返ります</div>
+        </div>
+      </div>
+      <div class="arrow">›</div>
+    </a>
   </div>
 
   <!-- FOOTER -->
