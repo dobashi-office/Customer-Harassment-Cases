@@ -1,0 +1,1393 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伝え方の工夫</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#f3f5f8;
+  --card:#ffffff;
+  --panel:#e9eef4;
+  --ink:#1b2233;
+  --ink-2:#3f4a60;
+  --ink-3:#6d788b;
+  --line:#d6dde6;
+  --navy:#1b2a4a;
+  --navy-2:#2c4370;
+  --accent:#d35400;
+  --out:#a92a20;      --out-bg:#fbecea;   --out-line:#e3a49d;
+  --gray:#8f5a06;     --gray-bg:#fdf3e3;  --gray-line:#e2bf82;
+  --safe:#0e6655;     --safe-bg:#e6f2ee;  --safe-line:#8fc4b6;
+  --point:#1b4a7a;    --point-bg:#e9eff7; --point-line:#a3bedb;
+  --core:#8a3f10;     --core-bg:#f9ece1;  --core-line:#dfb593;
+  --shadow:rgba(27,34,51,.09);
+  --head-ink:#ffffff;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#10151e;
+    --card:#19202c;
+    --panel:#1e2634;
+    --ink:#e7ecf3;
+    --ink-2:#c2cad8;
+    --ink-3:#8b96a8;
+    --line:#2b3646;
+    --navy:#25344f;
+    --navy-2:#8fb4e8;
+    --accent:#ef8039;
+    --out:#f2a49b;     --out-bg:#2f1a18;   --out-line:#7a3a33;
+    --gray:#e0ad57;    --gray-bg:#2e2413;  --gray-line:#7d6228;
+    --safe:#79d2ba;    --safe-bg:#12302a;  --safe-line:#357062;
+    --point:#95c0ee;   --point-bg:#152736; --point-line:#37587a;
+    --core:#f0a76c;    --core-bg:#2f2013;  --core-line:#7d5330;
+    --shadow:rgba(0,0,0,.42);
+    --head-ink:#eef3fa;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#10151e;
+  --card:#19202c;
+  --panel:#1e2634;
+  --ink:#e7ecf3;
+  --ink-2:#c2cad8;
+  --ink-3:#8b96a8;
+  --line:#2b3646;
+  --navy:#25344f;
+  --navy-2:#8fb4e8;
+  --accent:#ef8039;
+  --out:#f2a49b;     --out-bg:#2f1a18;   --out-line:#7a3a33;
+  --gray:#e0ad57;    --gray-bg:#2e2413;  --gray-line:#7d6228;
+  --safe:#79d2ba;    --safe-bg:#12302a;  --safe-line:#357062;
+  --point:#95c0ee;   --point-bg:#152736; --point-line:#37587a;
+  --core:#f0a76c;    --core-bg:#2f2013;  --core-line:#7d5330;
+  --shadow:rgba(0,0,0,.42);
+  --head-ink:#eef3fa;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:'Noto Sans JP','Yu Gothic','游ゴシック',sans-serif;
+  font-size:15px;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+  line-break:strict;
+  word-break:auto-phrase;
+}
+h1,h2,h3,h4,p,ul,ol{margin:0;padding:0;}
+ul{list-style:none;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px;}
+
+/* ============ HERO ============ */
+.hero{
+  background:linear-gradient(135deg,#0f182b 0%,#22345a 58%,#5a7192 100%);
+  color:#fff;
+  padding:52px 32px 40px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:linear-gradient(90deg,#d35400 0%,#e8a361 55%,rgba(232,163,97,0) 100%);
+}
+.hero-inner{max-width:1080px;margin:0 auto;position:relative;z-index:1;}
+.hero-badge{
+  display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
+  padding:4px 14px;border-radius:30px;font-size:12px;letter-spacing:.1em;margin-bottom:18px;
+}
+.hero h1{
+  font-family:'Noto Serif JP',serif;font-weight:700;
+  font-size:clamp(25px,3.6vw,38px);line-height:1.35;text-wrap:balance;margin-bottom:14px;
+}
+.hero h1 em{font-style:normal;color:#f5b573;display:inline-block;}
+.hero-tag{
+  font-family:'Noto Serif JP',serif;font-weight:700;
+  font-size:clamp(15px,2.1vw,19px);line-height:1.6;color:rgba(255,255,255,.94);margin-bottom:14px;
+}
+.hero-tag em{font-style:normal;color:#f5b573;}
+.hero-sub{font-size:15px;font-weight:300;opacity:.92;max-width:62ch;}
+
+/* ============ TOOLBAR ============ */
+.toolbar{
+  position:sticky;top:0;z-index:20;
+  background:var(--card);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 1px 8px var(--shadow);
+}
+.toolbar-inner{max-width:1080px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.search-field{flex:1;min-width:210px;max-width:380px;display:flex;align-items:center;gap:8px;
+  border:1px solid var(--line);border-radius:24px;padding:5px 14px;background:var(--ground);}
+.search-field input{
+  flex:1;border:0;background:none;color:var(--ink);font-family:inherit;font-size:14px;outline:none;padding:2px 0;min-width:0;
+}
+.search-field input::placeholder{color:var(--ink-3);}
+.search-count{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-left:auto;}
+.legend span{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--ink-2);}
+.legend i{width:11px;height:11px;border-radius:3px;display:block;}
+
+.tabs{max-width:1080px;margin:0 auto;padding:0 16px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab-btn{
+  appearance:none;border:0;background:none;font-family:inherit;font-size:13.5px;font-weight:500;
+  color:var(--ink-3);white-space:nowrap;padding:11px 13px 9px;cursor:pointer;
+  border-bottom:3px solid transparent;transition:color .15s;
+}
+.tab-btn:hover{color:var(--accent);}
+.tab-btn[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:700;}
+.tab-badge{
+  display:inline-block;margin-left:5px;padding:0 6px;border-radius:9px;
+  background:var(--panel);color:var(--ink-3);font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;
+}
+.tab-btn[aria-selected="true"] .tab-badge{background:var(--accent);color:#fff;}
+
+/* ============ LAYOUT ============ */
+.wrap{max-width:1080px;margin:0 auto;padding:26px 24px 56px;}
+.panel-view[hidden]{display:none;}
+.lead{
+  background:var(--panel);border-left:4px solid var(--accent);border-radius:0 6px 6px 0;
+  padding:16px 20px;margin-bottom:26px;
+}
+.lead h2{font-family:'Noto Serif JP',serif;font-size:17px;margin-bottom:4px;color:var(--ink);}
+.lead p{font-size:13.5px;color:var(--ink-2);max-width:70ch;}
+
+.sec{margin:0 0 40px;}
+.sec:last-child{margin-bottom:0;}
+.sec-head{display:flex;align-items:center;gap:12px;padding-bottom:12px;margin-bottom:20px;border-bottom:2px solid var(--ink);}
+.sec-head .ico{font-size:21px;line-height:1;}
+.sec-head h2{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:700;line-height:1.35;}
+.sec-head .sub{font-size:12.5px;color:var(--ink-3);font-weight:400;display:block;line-height:1.6;}
+
+/* ============ CASE CARDS ============ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;align-items:start;}
+.case{
+  background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  box-shadow:0 1px 5px var(--shadow);transition:box-shadow .18s,transform .18s;
+}
+@media (prefers-reduced-motion:no-preference){
+  .case:hover{box-shadow:0 6px 20px var(--shadow);transform:translateY(-2px);}
+}
+.case[hidden]{display:none;}
+.case-head{background:var(--navy);color:var(--head-ink);padding:9px 14px;display:flex;align-items:center;gap:10px;}
+.case-no{
+  background:rgba(255,255,255,.2);border-radius:50%;width:25px;height:25px;flex:0 0 25px;
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;
+}
+.case-head h3{font-size:13.5px;font-weight:700;line-height:1.45;}
+.case-body{padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
+.line{border-radius:5px;padding:7px 11px;border-left:3px solid;font-size:13.5px;line-height:1.65;}
+.line .lb{font-size:10.5px;font-weight:700;letter-spacing:.08em;display:block;margin-bottom:2px;}
+.line .tx{color:var(--ink);}
+.l-out{background:var(--out-bg);border-color:var(--out);} .l-out .lb{color:var(--out);}
+.l-gray{background:var(--gray-bg);border-color:var(--gray);} .l-gray .lb{color:var(--gray);}
+.l-safe{background:var(--safe-bg);border-color:var(--safe);} .l-safe .lb{color:var(--safe);}
+.l-point{background:var(--point-bg);border-color:var(--point);font-size:12.5px;} .l-point .lb{color:var(--point);}
+.l-point .tx{color:var(--ink-2);}
+.l-core{background:var(--core-bg);border-color:var(--core);font-size:12.5px;} .l-core .lb{color:var(--core);}
+.l-core .tx{color:var(--ink-2);}
+.no-hit{text-align:center;padding:48px 20px;color:var(--ink-3);font-size:14px;}
+.no-hit[hidden]{display:none;}
+
+/* ============ 第0章 パーツ ============ */
+.stand{
+  background:linear-gradient(135deg,#1b2a4a,#123f44);color:#fff;border-radius:8px;padding:28px 30px;margin-bottom:36px;
+}
+.stand h2{font-family:'Noto Serif JP',serif;font-size:19px;color:#f5b573;margin-bottom:12px;line-height:1.45;}
+.stand p{font-size:14px;color:rgba(255,255,255,.9);max-width:66ch;}
+.stand p + p{margin-top:10px;}
+.stand strong{color:#fff;text-decoration:underline;text-decoration-color:rgba(245,181,115,.8);text-decoration-thickness:1px;text-underline-offset:5px;}
+
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;}
+.rule{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 18px;}
+.rule h3{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:5px;}
+.rule p{font-size:12.5px;color:var(--ink-2);line-height:1.75;}
+
+.check{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 4px;}
+.check li{display:flex;gap:12px;padding:11px 16px;border-bottom:1px solid var(--line);}
+.check li:last-child{border-bottom:0;}
+.check .box{width:19px;height:19px;flex:0 0 19px;margin-top:5px;border:2px solid var(--safe);border-radius:4px;}
+.check .q{font-size:13.5px;font-weight:700;color:var(--ink);}
+.check .n{font-size:12.5px;color:var(--ink-3);display:block;line-height:1.7;}
+.verdict{
+  margin-top:14px;background:var(--safe-bg);border:1px solid var(--safe-line);border-radius:8px;
+  padding:14px 18px;font-size:13.5px;color:var(--ink-2);
+}
+.verdict strong{color:var(--safe);}
+
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);}
+table{width:100%;border-collapse:collapse;min-width:660px;}
+th{background:var(--navy);color:var(--head-ink);padding:11px 14px;text-align:left;font-size:12.5px;font-weight:700;white-space:nowrap;}
+td{padding:11px 14px;border-bottom:1px solid var(--line);font-size:13px;color:var(--ink-2);line-height:1.7;vertical-align:top;}
+tbody tr:last-child td{border-bottom:0;}
+tbody tr:nth-child(even) td{background:var(--panel);}
+td.type{font-weight:700;color:var(--ink);white-space:nowrap;}
+.tbl-note{font-size:12px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+.steps{display:flex;flex-direction:column;}
+.step{display:flex;gap:16px;position:relative;padding-bottom:18px;}
+.step:not(:last-child)::before{content:'';position:absolute;left:17px;top:38px;bottom:0;width:2px;background:var(--line);}
+.step-no{
+  width:36px;height:36px;flex:0 0 36px;border-radius:50%;background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;z-index:1;
+}
+.step-body{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px;flex:1;min-width:0;}
+.step-body h3{font-size:14.5px;font-weight:700;margin-bottom:4px;}
+.step-body p{font-size:13px;color:var(--ink-2);}
+.step-body .ex{
+  margin-top:9px;background:var(--safe-bg);border-left:3px solid var(--safe);border-radius:0 5px 5px 0;
+  padding:7px 12px;font-size:13px;color:var(--ink);
+}
+.step-ng{background:var(--out-bg);border:1px solid var(--out-line);border-radius:8px;padding:13px 18px;font-size:13px;color:var(--ink-2);}
+.step-ng strong{color:var(--out);}
+
+.qa{display:flex;flex-direction:column;gap:14px;}
+.qa-item{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+.qa-q{display:flex;gap:11px;padding:13px 18px;background:var(--panel);font-size:14px;font-weight:700;color:var(--ink);}
+.qa-q .mk,.qa-a .mk{font-family:'Noto Serif JP',serif;font-size:17px;line-height:1.4;flex:0 0 auto;color:var(--navy-2);}
+.qa-a{display:flex;gap:11px;padding:14px 18px;font-size:13.5px;color:var(--ink-2);}
+.qa-a .mk{color:var(--accent);}
+.qa-a p + p{margin-top:9px;}
+.qa-a strong{color:var(--ink);}
+
+/* ============ 裁判例 ============ */
+.hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;align-items:start;}
+.hcase{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:0 1px 5px var(--shadow);}
+.hcase-head{padding:9px 14px;color:#fff;display:flex;align-items:center;gap:10px;}
+.hcase-head h3{font-size:13.5px;font-weight:700;line-height:1.45;}
+.hfile{background:rgba(255,255,255,.22);border-radius:4px;padding:1px 8px;font-size:11px;font-weight:700;letter-spacing:.05em;white-space:nowrap;}
+.t-pawa{background:#8c241c;} .t-seku{background:#5c2f6e;} .t-sogi{background:#1a4d7a;} .t-gyaku{background:#4a3a2a;}
+.hcase-body{padding:13px 15px;font-size:13.5px;color:var(--ink-2);}
+.htag{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 8px;border-radius:4px;background:var(--panel);color:var(--ink);margin-bottom:6px;}
+.hcase-body .res{display:block;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);color:var(--ink);font-weight:500;}
+
+/* ============ FOOTER ============ */
+.foot{border-top:1px solid var(--line);padding:26px 24px 34px;text-align:center;color:var(--ink-3);font-size:12px;background:var(--card);}
+.foot p + p{margin-top:5px;letter-spacing:.08em;}
+
+@media (max-width:640px){
+  body{font-size:14.5px;}
+  .hero{padding:38px 20px 30px;}
+  .wrap{padding:20px 14px 48px;}
+  .toolbar-inner{padding:9px 14px;}
+  .legend{margin-left:0;gap:10px;}
+  .grid,.hgrid{grid-template-columns:1fr;}
+  .stand{padding:22px 20px;}
+  .step{gap:12px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" lang="ja">
+  <div class="hero-inner">
+    <span class="hero-badge">管理職・リーダー向け／土橋社労士事務所</span>
+    <h1>伝え方の工夫</h1>
+    <p class="hero-tag">言い方は変える。<em>伝える中身は、変えない。</em></p>
+    <p class="hero-sub">ハラスメントを防ぐ言い換えと、部下にきちんと指導するための型をまとめた事典です。68のシーンについて「アウト／グレーゾーン／セーフ」を並べ、それぞれに<strong>言い換えても外してはいけない指導の芯</strong>を添えました。</p>
+  </div>
+</header>
+
+<nav class="toolbar" lang="ja" aria-label="章の切り替えと検索">
+  <div class="toolbar-inner">
+    <div class="search-field">
+      <span aria-hidden="true">🔍</span>
+      <input type="search" id="q" placeholder="キーワードで絞り込む（例：ミス、妊娠、リモート）" aria-label="ケースをキーワードで絞り込む">
+    </div>
+    <span class="search-count" id="qcount" role="status"></span>
+    <div class="legend">
+      <span><i style="background:#a92a20"></i>アウト</span>
+      <span><i style="background:#8f5a06"></i>グレーゾーン</span>
+      <span><i style="background:#0e6655"></i>セーフ</span>
+      <span><i style="background:#8a3f10"></i>指導の芯</span>
+    </div>
+  </div>
+  <div class="tabs" role="tablist" aria-label="章">
+    <button class="tab-btn" role="tab" id="t0" aria-controls="p0" aria-selected="true">序章：指導の土台</button>
+    <button class="tab-btn" role="tab" id="t1" aria-controls="p1" aria-selected="false">1 しかる・注意する<span class="tab-badge">12</span></button>
+    <button class="tab-btn" role="tab" id="t2" aria-controls="p2" aria-selected="false">2 指示・依頼する<span class="tab-badge">12</span></button>
+    <button class="tab-btn" role="tab" id="t3" aria-controls="p3" aria-selected="false">3 ほめる・気づかう<span class="tab-badge">16</span></button>
+    <button class="tab-btn" role="tab" id="t4" aria-controls="p4" aria-selected="false">4 制度・相談を受ける<span class="tab-badge">13</span></button>
+    <button class="tab-btn" role="tab" id="t5" aria-controls="p5" aria-selected="false">5 リモート・メール・SNS<span class="tab-badge">9</span></button>
+    <button class="tab-btn" role="tab" id="t6" aria-controls="p6" aria-selected="false">6 部下から上司へ<span class="tab-badge">6</span></button>
+    <button class="tab-btn" role="tab" id="t7" aria-controls="p7" aria-selected="false">裁判例<span class="tab-badge">8</span></button>
+  </div>
+</nav>
+
+<main class="wrap" lang="ja">
+<!-- ============ 序章 ============ -->
+<section class="panel-view" id="p0" role="tabpanel" aria-labelledby="t0">
+
+  <div class="stand">
+    <h2>言い換えは、「叱らないこと」ではありません。</h2>
+    <p>ハラスメント研修のあとで、こんな声をよく聞きます。「何を言っても訴えられそうで、もう注意できない」。けれど、指導をやめてしまうと、本人は成長の機会を失い、周囲には「なぜあの人だけ野放しなのか」という不満がたまります。<strong>放置もまた、管理職の責任問題です。</strong></p>
+    <p>この事典の言い換えは、伝える中身を薄めるためのものではありません。<strong>人格への攻撃をやめ、行動と基準の話に戻すための言い換え</strong>です。だからどのカードにも、言い方の見本とは別に「ここだけは外してはいけない」という<strong>指導の芯</strong>を書いてあります。言い方はやわらかく、要求は明確に。それが両立の答えです。</p>
+  </div>
+
+  <section class="sec">
+    <div class="sec-head"><span class="ico" aria-hidden="true">🧭</span>
+      <h2>指導の芯を折らない5原則<span class="sub">この5つが入っていれば、口調がやわらかくても指導は成立します</span></h2>
+    </div>
+    <div class="rules">
+      <div class="rule"><h3>事実で言う</h3><p>「やる気がない」ではなく「先週の日報が3日分出ていない」。人格ではなく、観測できた行動だけを口に出す。</p></div>
+      <div class="rule"><h3>目的を言う</h3><p>何のために直すのかを添える。「先方への提出物だから」「事故につながるから」。目的のない指示は、攻撃と受け取られやすい。</p></div>
+      <div class="rule"><h3>基準を言う</h3><p>どうなればOKかを数と期限で示す。「もっとちゃんと」は指導ではなく、感想。</p></div>
+      <div class="rule"><h3>場所を選ぶ</h3><p>人前での叱責は、内容が正しくても違法と判断されやすい。原則1対1、短く、その場で。</p></div>
+      <div class="rule"><h3>記録する</h3><p>日時・場所・内容・相手の反応をメモに残す。指導した側を守るのも、この記録です。</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><span class="ico" aria-hidden="true">⚖️</span>
+      <h2>指導とパワハラの境界チェックリスト<span class="sub">言う前に6つ自問する。全部YESなら、それは指導です</span></h2>
+    </div>
+    <ul class="check">
+      <li><span class="box" aria-hidden="true"></span><span><span class="q">① 業務上の必要があるか</span><span class="n">その業務や職場秩序に関わる話か。過去の恨み、私生活、性格そのものへの言及になっていないか。</span></span></li>
+      <li><span class="box" aria-hidden="true"></span><span><span class="q">② 目的は改善か</span><span class="n">相手を良くするためか、それとも懲らしめ・見せしめ・腹いせになっていないか。</span></span></li>
+      <li><span class="box" aria-hidden="true"></span><span><span class="q">③ 手段は相当か</span><span class="n">人格否定、大声、机を叩く、長時間、同じ話の蒸し返し。内容が正しくても、やり方が過剰なら違法になり得る。</span></span></li>
+      <li><span class="box" aria-hidden="true"></span><span><span class="q">④ 場所と人数は適切か</span><span class="n">他の社員の前、共有メール、全員参加の会議。晒す形になっていないか。</span></span></li>
+      <li><span class="box" aria-hidden="true"></span><span><span class="q">⑤ 何をどう直すかを示しているか</span><span class="n">否定だけで終わらず、次の具体的な行動まで言えているか。</span></span></li>
+      <li><span class="box" aria-hidden="true"></span><span><span class="q">⑥ 改善できる余地を残しているか</span><span class="n">「次はない」「やめてしまえ」で退路を断っていないか。支援や相談先を示せているか。</span></span></li>
+    </ul>
+    <div class="verdict"><strong>使い方：</strong>6つすべてYESなら、多少きつい言い方でも「業務上必要かつ相当な範囲の指導」です。NOが1つでもあれば、言う前に言い方・場所・タイミングを組み替えてください。内容を取り下げる必要はありません。</div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><span class="ico" aria-hidden="true">📊</span>
+      <h2>パワハラ6類型 早見表<span class="sub">「該当しうる例」と「該当しないと考えられる例」を並べて確認する</span></h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>類型</th><th>該当しうる例</th><th>該当しないと考えられる例</th></tr></thead>
+        <tbody>
+          <tr><td class="type">① 身体的な攻撃</td><td>叩く、蹴る、物を投げつける、胸ぐらをつかむ</td><td>誤ってぶつかってしまった</td></tr>
+          <tr><td class="type">② 精神的な攻撃</td><td>人格を否定する発言、他の社員の前での長時間の叱責、必要以上に繰り返す叱責、共有メールでの罵倒</td><td>遅刻や無断欠勤を繰り返す社員に、改まって強く注意する</td></tr>
+          <tr><td class="type">③ 人間関係からの切り離し</td><td>一人だけ別室に隔離する、集団で無視する、会議や連絡から外す</td><td>新人育成のため、一定期間別室で研修を行う</td></tr>
+          <tr><td class="type">④ 過大な要求</td><td>達成不可能なノルマを課す、業務と無関係な私的雑用をさせる、教育せずに難しい仕事だけ与える</td><td>育成のため、現状より少し高いレベルの業務を任せる</td></tr>
+          <tr><td class="type">⑤ 過小な要求</td><td>管理職を退職させる目的で雑務のみに従事させる、仕事を与えない</td><td>能力や体調に応じて、一時的に業務量を軽減する</td></tr>
+          <tr><td class="type">⑥ 個の侵害</td><td>私生活を執拗に詮索する、本人の了解なく性的指向・病歴・家庭事情を他人に暴露する</td><td>配慮のために、本人に必要な範囲で家庭の状況を確認する</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">※ 厚生労働省の指針で示された代表的な類型です。実際の判断は、行為の目的・態様・頻度・継続性・当事者の関係性などの事情を総合して行われます。この表は「線引きの目安」であって、これに当てはまらなければ何をしてもよい、という意味ではありません。</p>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><span class="ico" aria-hidden="true">🗣️</span>
+      <h2>フィードバックの型<span class="sub">事実 → 影響 → 依頼 → 支援。この順に並べるだけで、責める言葉になりにくい</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-no">1</div><div class="step-body">
+        <h3>事実</h3><p>評価も推測も混ぜず、見たこと・起きたことだけを言う。ここに「いつも」「まったく」を入れない。</p>
+        <p class="ex">「昨日の見積書、単価が3か所違っていたね。」</p>
+      </div></div>
+      <div class="step"><div class="step-no">2</div><div class="step-body">
+        <h3>影響</h3><p>それが誰に、何に影響したかを伝える。叱る理由がここで初めて相手に伝わる。</p>
+        <p class="ex">「先方に再送してもらうことになって、回答が1日遅れた。」</p>
+      </div></div>
+      <div class="step"><div class="step-no">3</div><div class="step-body">
+        <h3>依頼</h3><p>次にどうしてほしいかを、行動レベルで具体的に言う。ここを飛ばすと、ただの叱責で終わる。</p>
+        <p class="ex">「送信する前に、単価の欄だけ2回見てほしい。」</p>
+      </div></div>
+      <div class="step"><div class="step-no">4</div><div class="step-body">
+        <h3>支援</h3><p>詰まっている点を聞き、こちらができることを申し出る。要求水準は下げず、やり方を一緒に変える。</p>
+        <p class="ex">「確認しづらいところがあれば教えて。チェック表を作ろうか。」</p>
+      </div></div>
+    </div>
+    <p class="step-ng"><strong>この型に乗らない言葉：</strong>「何回言えばわかるの」「やる気ある？」「常識でしょ」——事実も、依頼も入っていません。相手は何を直せばいいのか分からず、残るのは「責められた」という記憶だけです。</p>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><span class="ico" aria-hidden="true">💬</span>
+      <h2>「怖くて指導できない」への処方箋<span class="sub">管理職からよく寄せられる3つの悩み</span></h2>
+    </div>
+    <div class="qa">
+      <div class="qa-item">
+        <div class="qa-q"><span class="mk">Q</span><span>強く言うとパワハラだと言われそうで、何も言えなくなりました。</span></div>
+        <div class="qa-a"><span class="mk">A</span><div>
+          <p><strong>変えるのは言い方であって、要求水準ではありません。</strong>「今の状態では基準に達していない」「期限は明日の15時」——この2つを伝えることは、管理職の職務です。伝えないことのほうが、労務管理としては問題になります。</p>
+          <p>怖さの正体は、たいてい「感情が乗ってしまいそう」という不安です。事実・影響・依頼・支援の型に乗せて話すと、感情の入る隙間が減り、結果として言いやすくなります。</p>
+        </div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q"><span class="mk">Q</span><span>注意したら、その場で「それパワハラです」と言われました。</span></div>
+        <div class="qa-a"><span class="mk">A</span><div>
+          <p><strong>業務上必要かつ相当な範囲の指導は、パワハラではありません。</strong>まずは指導の記録（日時・場所・伝えた内容・相手の反応）を残してください。記録は、指導された側だけでなく、指導した側を守るものです。</p>
+          <p>そのうえで、自分の言い方に人格否定や大声がなかったかを点検します。問題がなければ、指導内容は撤回しないこと。撤回すると「言えば通る」という前例になり、他の社員への指導も難しくなります。判断に迷うときは、一人で抱えず会社の相談窓口や顧問社労士に共有してください。</p>
+        </div></div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q"><span class="mk">Q</span><span>何度言っても直りません。どこまでやっていいのでしょうか。</span></div>
+        <div class="qa-a"><span class="mk">A</span><div>
+          <p><strong>同じ叱責を繰り返すのが、いちばん危ない対応です。</strong>繰り返し・長時間は、それ自体がパワハラの評価要素になります。3回言って直らないなら、言い方ではなく<strong>やり方</strong>を変えてください。口頭を書面の指示に変える、チェックリストを作る、手順を分解する、担当を組み替える、教育計画を立てる。</p>
+          <p>それでも改善しないときは、感情ではなく手続で対応します。指導記録を積み上げ、人事や顧問社労士と相談したうえで、配置転換や人事評価といった正式な措置を検討する——これが会社としての正しい進め方です。</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ 第1章 ============ -->
+<section class="panel-view" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
+  <div class="lead">
+    <h2>第1章　しかる・注意する</h2>
+    <p>感情をぶつけると、正しい内容まで届かなくなります。問題は「人」ではなく「起きた事実」に置き、原因と次の行動まで一緒に決めるのがこの章の型です。</p>
+  </div>
+  <div class="grid">
+
+    <article class="case" data-k="仕事の仕上がりに不満 できない 社会人失格 一緒に考えよう 基準">
+      <div class="case-head"><span class="case-no">1</span><h3>仕事の仕上がりに不満</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">こんなこともできないの!? 社会人失格だね。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">ふつうこれくらい誰でもできると思うよ。なんでできないの?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">今の状態だと、提出できる水準には届いていない。どこを直せばいいか一緒に見よう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「社会人失格」は人格の否定。仕上がりの話が、その人自身の否定にすり替わっている。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">「今のままでは基準に達していない」という評価は、はっきり口に出す。やわらげるのは言い方だけ。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="ケアレスミス しかる ダメ 使えない らしくないミス 再発防止">
+      <div class="case-head"><span class="case-no">2</span><h3>ケアレスミスをしかる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">やっぱりおまえはダメだな。ほんと使えないよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">がっかりだな。君にまかせた私が間違っていたよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">●●さんらしくないミスだね。次はどこで気づけるようにしようか。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">日頃の評価を示しつつ注意すると、防御反応が下がり、話が本題に入りやすい。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">ミスがあった事実と、再発を防ぐ具体策は必ず握って終わる。「気をつけます」で締めない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="失敗 言い訳 女の腐った 男らしくない 改善策">
+      <div class="case-head"><span class="case-no">3</span><h3>失敗の言い訳をしてくる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">言い訳ばかりするな! 女の腐ったような奴だな。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">そんな態度は男らしくないよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">事情はわかった。そのうえで、次に同じ状況になったらどうする?</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">性別を持ち出した罵倒は、それ自体がセクハラ・パワハラ。事情の聞き取りと責任追及は分けて行う。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">言い分は最後まで聞く。ただし「次はこうする」を本人の言葉で言わせるまでは終わらせない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="名前 返事 高卒 学歴 礼儀知らず コミュニケーション">
+      <div class="case-head"><span class="case-no">4</span><h3>名前を呼んでも返事がない</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">おい! 名前を呼ばれたら返事をしろ。やっぱり高卒はダメだな。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">名前を呼ばれても返事をしないなんて、礼儀知らずだよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">返事がないと、伝わったかどうかこちらが判断できないんだ。ひと言返してほしい。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">学歴や属性を持ち出した瞬間、指導ではなく差別的な攻撃になる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">返事は業務上必要なルールだと、理由付きで明確に求める。「気にしない」で流さない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="ミス 理由 おとしまえ 問いかけ 原因究明">
+      <div class="case-head"><span class="case-no">5</span><h3>ミスをした理由を聞く</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">何やってんだよ! お前がおとしまえつけろよ!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">どうしてこうなったのか、理由を言いなさい!</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">どの工程で狂ったのか、一緒に順番に見ていこう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「問い詰める」と人は身を守る。「問いかける」と原因が出てくる。目的は犯人探しではなく再発防止。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">原因が特定できるまで終わらせない。曖昧なまま「以後気をつけます」で切り上げない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="報告 遅れ トラブル 責任 早めに 報連相">
+      <div class="case-head"><span class="case-no">6</span><h3>トラブルの報告が遅れた</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">今さら報告してどうすんだよ。おまえが責任とれよ!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">すぐに報告すべきだよね!? なんでしなかったの!</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">「まずいかも」と思った時点で言ってほしい。早ければ打てる手がある。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">強く責めるほど、次の報告はさらに遅れる。報告しやすさが会社のリスクを下げる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">「どうなったら即報告か」を条件と期限で決めておく（例：金額◯円以上、先方が不満を口にした時点）。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="独断 勝手 個人プレー 心くばり 事前相談 権限">
+      <div class="case-head"><span class="case-no">7</span><h3>独断で行動しがち</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">能力もないクセに。勝手にやるならやめちまえ!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">行き過ぎた個人プレーは迷惑だよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">判断が早いのは強みだけど、この範囲は先に一声かけてほしい。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「やめちまえ」は解雇を示唆する脅し。長所を認めたうえで範囲を示すほうが行動は変わる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">事前相談が必要な範囲（金額・相手・影響の大きさ）を具体的に線引きして伝える。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="反発 口ごたえ グズ 冷静 感情 態度">
+      <div class="case-head"><span class="case-no">8</span><h3>何かにつけて反発してくる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">頭が悪いクセに口ごたえするな! おまえはグズだな。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">その態度は何様のつもり!?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">今は少し熱くなっているね。午後にもう一度、この件だけ話そう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">態度の応酬に入ると、業務の話が消える。時間を置くのは逃げではなく戦術。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">態度の議論には乗らないが、業務の要求水準は下げない。日を改めてでも、必ず伝え切る。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="考え 行動 否定 精神障害 頭おかしい 意思表示 反対">
+      <div class="case-head"><span class="case-no">9</span><h3>考えや行動を否定する</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">おまえは精神障害だな。頭おかしいよ!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">それは絶対におかしいよ! そんな考えばかりしてたらダメだよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">◯◯というリスクがあるので、その案には賛成できない。私は△△のほうがいいと思う。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">病名や障害を侮蔑語として使うのは、それ自体が違法な人格攻撃。裁判例でも慰謝料の対象になっている。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">「賛成できない」という結論は、理由と代替案とセットで明言する。曖昧にして流さない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="やる気 覇気 気合い 集中 寄り添う 行動">
+      <div class="case-head"><span class="case-no">10</span><h3>やる気がないように見える</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">やる気があるの? そんな調子じゃ次はないから。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">覇気がないなぁ。もっと気合いを入れて!</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">今週は手が止まっている時間が長いように見える。何か引っかかっていることがある?</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「やる気」は測れない。測れないものを責めても改善しないうえ、体調不良のサインを見落とす。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">求めることは気持ちではなく行動で示す（着手時刻・報告の頻度・処理件数）。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="定時 残業 帰る 積み残し 確認 優先順位">
+      <div class="case-head"><span class="case-no">11</span><h3>仕事を残して定時であがる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">終わるまで帰るな! 残業は付けずにやれよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">先輩たちが残っているのに帰るの?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">お疲れさま。◯◯は明日の午前でも間に合う? 難しければ分担しよう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">サービス残業の強要は違法。空気で残らせるのも、実質的には同じこと。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">残業を求めない代わりに、期限と優先順位は明確に共有する。間に合わないなら人と工程を動かす。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="同じこと 何度も 聞く 頭悪い 教える 理解 マニュアル">
+      <div class="case-head"><span class="case-no">12</span><h3>何度も同じことを聞いてくる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">頭悪いなぁ! 何回同じこと聞くの。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">また聞くの!? あなたに教えてばかりで疲れちゃう。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">どこでつまずく? 今回は手順をメモにしながら一緒にやろう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">3回聞かれるのは、たいてい教え方か手順書の問題。個人の資質の話にすると解決しない。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">3回目からは口頭をやめる。本人にマニュアル化させ、次からはそれを見て動くことを課題にする。</span></p>
+      </div>
+    </article>
+
+  </div>
+  <p class="no-hit" hidden>該当するケースが見つかりませんでした。</p>
+</section>
+
+<!-- ============ 第2章 ============ -->
+<section class="panel-view" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+  <div class="lead">
+    <h2>第2章　指示する・依頼する</h2>
+    <p>性別で役割を決める、業務の範囲を超えて命じる。この2つが、指示の場面で最も多いつまずきです。頼む理由と範囲を言葉にすれば、遠慮せずに任せられます。</p>
+  </div>
+  <div class="grid">
+
+    <article class="case" data-k="初めて 仕事 指導 見て覚えて 具体的 手順">
+      <div class="case-head"><span class="case-no">13</span><h3>初めてする仕事の指導</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">（何も教えないで）こんなこともできないの!?</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">忙しくて教える暇はないから、見て覚えて。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">まず私がやるので見ていて。次は一緒に、3回目から一人でやってみよう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">教育せずに難しい仕事だけ与えるのは、パワハラの「過大な要求」に当たり得る。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">教えていない仕事の失敗は指導側の責任。手順・完成イメージ・締切を先に渡してから任せる。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="説明 理解度 確認 わかるか 復唱 記録">
+      <div class="case-head"><span class="case-no">14</span><h3>説明の理解度を確認する</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">おまえの頭じゃ理解できないだろうな。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">あなたにわかるかな?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">念のため、ここまでの手順を口に出して確認させてもらえる?</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">能力を疑う言い方は、聞き返す気力を奪う。結果として理解しないまま作業に入る。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">「わかった?」で済ませない。復唱かメモで、理解できているかを目に見える形で確かめる。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="飲み会 飲めない 強要 断る お酒 評価">
+      <div class="case-head"><span class="case-no">15</span><h3>飲めない部下を飲み会に誘う</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">たまには一杯付き合えよ。これも仕事のうちだよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">先輩からの酒の誘いは断らないものだよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">和食のおいしい店があるんだ。お酒は無理しなくていいし、都合が悪ければ遠慮なく。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">飲酒の強要（アルハラ）は健康被害に直結する。「仕事のうち」は業務命令と受け取られる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">参加・不参加は評価に一切影響しないと、はっきり口に出しておく。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="接待 服装 女性 スカート 女性らしさ TPO 清潔感">
+      <div class="case-head"><span class="case-no">16</span><h3>接待の服装を聞かれた</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">接待のときは、女性はスカートをはくものだよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">君の自由だけど、女性らしさを忘れないでね。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">先方は堅い会社だから、ジャケット着用で清潔感のある服装にしよう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「女性らしさ」は業務基準ではない。基準を場と相手に置けば、性別の話にならない。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">服装の基準は明確に伝えてよい。根拠は性別ではなく「取引先に失礼がないか」。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="接待 お酌 女性の役目 社長 管理職 役割分担">
+      <div class="case-head"><span class="case-no">17</span><h3>取引先の接待でお酌を頼む</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">社長のご機嫌をとるのは女性の役目だよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">●●さん、社長へお注ぎして。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">（管理職自ら）社長、私からお注ぎします。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">接待の場で女性社員だけに接遇役を割り振るのは、典型的な性差別的取扱い。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">接待での役割分担は、職位と業務上の必要で決める。性別は判断材料にしない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="朝礼 ノルマ 目標 ワンチーム 数字 脅し">
+      <div class="case-head"><span class="case-no">18</span><h3>朝礼でノルマを指示する</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">ノルマを達成できなかったら、どうなるかわかってるな!?</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">営業は数字がすべてだよ! いいな!</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">今週の目標は◯件です。金曜に進捗を見て、遅れている案件は分担を組み直します。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">不利益をほのめかす言い方は脅迫的。達成不可能な目標の押しつけは「過大な要求」に当たり得る。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">数値目標は明確に出す。あわせて、未達のときに何をするかまで事前に共有しておく。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="ゴルフ 送迎 新人 業務外 強要 休日">
+      <div class="case-head"><span class="case-no">19</span><h3>休日ゴルフの送迎を頼む</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">ゴルフの送迎は新人の役目! 当たり前だよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">業務外で悪いけど、迎えに来てくれない?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">今度のゴルフは私が車を出すよ。集合場所だけ決めておこう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">私的な行事で下位の者に役割を固定するのは「個の侵害」「過大な要求」につながる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">業務外の依頼は断れる前提で。どうしても必要なら、業務として命じ、労働時間として扱う。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="クリーニング 誰でもできる 単純作業 信頼 期待 私用">
+      <div class="case-head"><span class="case-no">20</span><h3>ちょっとした仕事を頼む</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">俺のクリーニングとってきて!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">誰でもできる仕事だから。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">地味な作業だけど、ここが崩れると全部やり直しになる。頼めるかな。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">上司の私用を命じるのは業務命令の範囲外。「誰でもできる」は仕事も相手も同時に軽んじている。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">私用は頼まない。業務なら、その仕事が全体のどこに効くのかまで説明して渡す。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="休日 急ぎ 仕事 私生活 都合 配慮 時間外">
+      <div class="case-head"><span class="case-no">21</span><h3>休日に急ぎの仕事を頼む</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">（いきなり連絡し）◯◯をやっといて!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">今、暇だよね? これできる?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">休みのところ申し訳ない。◯時までに対応できそうか、難しければ他を当たるので教えて。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「暇だよね」は私生活の価値を下げる決めつけ。休日の連絡は、それだけで負担になる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">断っても不利益はないと明言し、対応してもらったら必ず時間外として処理する。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="重い荷物 男性 力 性別 能力 安全">
+      <div class="case-head"><span class="case-no">22</span><h3>重い荷物を運んでもらう</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">男性のほうが力があるから、男性社員が運んでね。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">いつもパワー満点の●●君、運んでくれない?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">1箱15kgあります。手の空いている人、2人1組でお願いします。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">性別で作業を割り振ると、男性側にも「断れない」圧力が生まれる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">安全のための制限（重量の上限・2人で運ぶ）はルールとして全員に示す。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="お茶 女性 上手 セルフ 役割 性別 当番">
+      <div class="case-head"><span class="case-no">23</span><h3>休憩のお茶いれ</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">お茶いれは女性の方が上手だから、いれて!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">●●さんのいれるお茶はおいしいからお願い!</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">みんな、ひと息いれよう。お茶はセルフでね。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">ほめ言葉の形をとっていても、特定の人に役割を固定すれば同じこと。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">担当を決めるなら当番制など、性別と無関係な仕組みにする。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="丁寧 細かい 女性 神経質 能力 先入観 実績">
+      <div class="case-head"><span class="case-no">24</span><h3>丁寧な仕事をお願いする</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">細かい作業は女性に向いているからお願いね。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">神経質な●●さんがやってくれない!?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">前回の照合が正確だったので、今回も●●さんにお願いしたい。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「神経質」は性格の評価。依頼理由は性格ではなく実績に置く。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">なぜその人に頼むのかを、本人にも他の社員にも説明できる根拠で語る。</span></p>
+      </div>
+    </article>
+
+  </div>
+  <p class="no-hit" hidden>該当するケースが見つかりませんでした。</p>
+</section>
+<!-- ============ 第3章 ============ -->
+<section class="panel-view" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+  <div class="lead">
+    <h2>第3章　ほめる・気づかう・雑談する</h2>
+    <p>年齢・性別・体型・結婚・出産。悪気のないひと言が最も事故になりやすい領域です。ほめるなら「その人の行動」、気づかうなら「体調と業務」。この2点に絞れば安全に踏み込めます。</p>
+  </div>
+  <div class="grid">
+
+    <article class="case" data-k="ミス減 効率 ほめる 認める その調子 具体的">
+      <div class="case-head"><span class="case-no">25</span><h3>ミスが減ったことをほめる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">少しくらいできたから、いい気になるなよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">これでやっと同期の連中に追いついたね。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">先月は差し戻しがゼロだったね。チェックの手順を変えたのが効いている。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">他人との比較でほめると、次はその比較で追い詰められる。比べる相手は過去の本人。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">良くなった点こそ具体的に指摘する。何がどう改善したかを言語化すると、その行動が定着する。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="若手 ほめる 学歴 優秀 頼りになる 年齢 世代">
+      <div class="case-head"><span class="case-no">26</span><h3>頑張る若手をほめる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">若いのに優秀らしいね。学歴がないのに大したものだ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">若いくせにやるじゃない。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">段取りが的確で助かった。次の案件も任せたい。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「◯◯なのに」は、その属性を下に見ている前提を露わにする。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">ほめる対象は年齢や学歴ではなく、その人の行動と成果に置く。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="女性 仕事 ほめる 女だてら 張り切る 性別 先入観">
+      <div class="case-head"><span class="case-no">27</span><h3>仕事をこなす女性をほめる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">女だてらに張り切っているなぁ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">女性ながら頑張ってるなぁ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">●●さん、あの交渉はよく粘ったね。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「女性ながら」は、期待水準が低かったことの表明になってしまう。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">同じ成果には同じ言葉を。性別で表現を変えない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="男性 気が利く ほめる 女みたい 旦那 思い込み">
+      <div class="case-head"><span class="case-no">28</span><h3>気が利く男性をほめる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">女みたいに、細かいことに気がつく奴だな。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">いい旦那さんになりそうだね。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">先回りして資料を揃えてくれたね。あれで会議が早く終わった。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「気が利くのは女性」という思い込みが、そのまま雑務の割り振りに現れていく。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">気配りも評価対象の能力として、正面から評価する。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="女性 見た目 ほめる 髪形 デート 彼氏 スリム ダイエット 服装">
+      <div class="case-head"><span class="case-no">29</span><h3>見た目をほめる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">髪形変えた? 今日はデート? 彼氏とうまくいってるんだ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">最近スリムになったね。ダイエットしたの?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">そのジャケット、今日の商談にぴったりだね。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">体型や恋愛に踏み込んだ瞬間、ほめ言葉はセクハラになる。服装・持ち物までが安全圏。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">迷ったら、見た目ではなく仕事の話をほめる。それで足りる。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="男性 筋肉 さわる マッチョ セクハラ トレーニング 身体">
+      <div class="case-head"><span class="case-no">30</span><h3>力もちの男性をほめる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">筋肉モリモリだね。さわらせて!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">マッチョなボディだね。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">力仕事、いつも助かっているよ。無理のない範囲でね。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">身体への言及と接触は、男女を問わずセクハラ。「冗談」も抗弁にならない。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">身体ではなく、本人の取り組みや貢献に話題を向ける。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="年上 部下 ほめる おじさん リスペクト 見直す 職位">
+      <div class="case-head"><span class="case-no">31</span><h3>年上の部下をほめる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">おじさんのくせによくわかりましたね。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">さすが●●さん、見直しましたよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">この案件は、●●さんの経験があってまとまりました。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「見直した」は、それまで低く見ていたという告白になる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">敬意は保ちつつ、指示と期限は職位に基づいてはっきり伝える。遠慮して曖昧にしない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="健康 休む 迷惑 支障 体を休める 有給 引き継ぎ">
+      <div class="case-head"><span class="case-no">32</span><h3>健康を気づかって休ませる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">休みもとらずダラダラ働いてると迷惑なんだよ。休めよ!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">君がいなくても仕事に支障はないから。休んだほうがいいよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">来週、私も休みをとります。◯◯さんも予定を入れてください。急ぎの件は私が見ます。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「いなくても支障はない」は気づかいのつもりでも、存在の否定として残る。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">休むよう勧めるなら、その間の業務を誰が持つかまで示す。そこまでが管理職の仕事。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="多忙 業務軽減 担当外す 無理 レベルの高い仕事 理由">
+      <div class="case-head"><span class="case-no">33</span><h3>多忙な部下の業務を減らす</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">（理由なく）担当からはずすよ。これで楽になるぞ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">君には無理そうだから、別の人に任せる。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">今は◯◯に集中してほしいので、この案件は一時的に外れてもらいます。来期に戻します。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">理由のない担当外しは「過小な要求」と受け取られ、退職勧奨の布石とみなされることもある。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">外す理由と、いつ・どう戻すのかを必ず言語化して伝える。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="体調 更年期 寝不足 異性 健康 私生活 詮索">
+      <div class="case-head"><span class="case-no">34</span><h3>体調の悪そうな人を気づかう</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">（冗談ぽく）まさか更年期?</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">もしかして寝不足? 昨夜何してたの?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">体調はどうかな。今日の業務量、調整が必要なら言ってください。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">原因の詮索は「個の侵害」。聞いてよいのは、業務をどう調整するかだけ。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">体調は聞いてよい。原因は聞かない。必要なら産業医や健康相談につなぐ。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="妊娠 つわり 体調不良 甘え 無理 母体 マタハラ 軽易業務">
+      <div class="case-head"><span class="case-no">35</span><h3>妊娠中で体調がすぐれない</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">つわりは病気じゃないから。甘えないでよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">あなたもやればできる。頑張って!</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">仕事は分担します。今日できる範囲と、外せない予定だけ教えてください。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">妊娠中の体調不良への叱責はマタハラ。会社には母性健康管理の措置義務がある。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">就業制限や軽易業務への転換は、本人の申出と医師の指示に従って手続として行う。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="太る 体重 自己管理 ストレス 心配 背景 健診">
+      <div class="case-head"><span class="case-no">36</span><h3>太ってきた部下と雑談する</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">最近太り過ぎだぞ。だから仕事もできないんだよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">体重気にしてるか? 自己管理も大事だよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">最近、負荷が高くない? 気になることがあれば聞かせて。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">体型への言及は業務と無関係で、傷つけるだけ。背景に不調が隠れていることもある。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">健康の話は制度（健診・産業医面談）につなぐ。個人の感想を挟まない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="未婚 結婚 身を固める 個人の自由 責任感 私生活">
+      <div class="case-head"><span class="case-no">37</span><h3>未婚の部下に結婚の話をふられた</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">結婚していないから責任感が薄いんだよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">そろそろ結婚して身を固めたら?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">結婚するかどうかは、その人の自由だからね。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">婚姻状況と職務能力を結びつける発言は、差別的取扱いの根拠と見られる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">私生活は評価と無関係。こちらから話題にする必要がない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="子なし 既婚 出産 妊娠 軽率 事情 不妊">
+      <div class="case-head"><span class="case-no">38</span><h3>子どものいない既婚者との会話</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">子どもはまだ? 若いうちに産んだほうがいいよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">心配しすぎだよ。産んじゃえばなんとかなるって。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">（話題にしない。相談されたら）事情は人それぞれだから、使える制度はいつでも案内するよ。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">不妊治療中であることも、選択の結果であることもある。踏み込む必要のない領域。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">妊娠・出産の予定は聞かない。制度の説明は、全員に等しく行えば足りる。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="20代 女性 かわいい 30超え 若い チャレンジ 世代 年齢">
+      <div class="case-head"><span class="case-no">39</span><h3>20代の社員と雑談する</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">若くてかわいいね。女は30超えたらダメだな。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">20代か。今が華だよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">20代のうちに現場を一通り見ておくと、あとで効いてくるよ。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">年齢と容姿を結びつける発言は、その場にいる他の世代も傷つける。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">年齢ではなく、任せたい仕事と期待を語る。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="アダルト 下ネタ 雑談 不快 冗談 謝罪 撤回">
+      <div class="case-head"><span class="case-no">40</span><h3>下ネタに不快感を示された</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">いい大人なんだから流せないでどうする。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">ごめん、ごめん。軽い冗談だから。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">申し訳ない。職場で言うべき話ではなかった。以後やめます。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「冗談だから」は、不快感を表明した側を過敏だと責める構図になる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">指摘を受けたら即座に止め、二度と繰り返さない。冗談扱いで薄めない。</span></p>
+      </div>
+    </article>
+
+  </div>
+  <p class="no-hit" hidden>該当するケースが見つかりませんでした。</p>
+</section>
+
+<!-- ============ 第4章 ============ -->
+<section class="panel-view" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
+  <div class="lead">
+    <h2>第4章　休暇・時短制度と、相談を受ける場面</h2>
+    <p>産休・育休・介護休業の取得は労働者の権利であり、会社には不利益取扱いを防ぐ措置義務があります。ここでの一言は、会社の法的責任に直結します。</p>
+  </div>
+  <div class="grid">
+
+    <article class="case" data-k="妊娠 報告 迷惑 おめでとう 前向き マタハラ 引き継ぎ">
+      <div class="case-head"><span class="case-no">41</span><h3>妊娠の報告を受ける</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">こんな忙しい時期に困るなぁ。迷惑かけないでよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">ちょうど忙しくなるときだな……でも仕方ないね。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">おめでとう。体調を最優先に。業務の進め方は来週あらためて相談しよう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">報告の場での否定的な反応は、それだけでマタハラに該当し得る。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">体調確認・業務調整・引き継ぎの相談は、この場で「いつ話すか」だけ決めておく。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="産休 申請 迷惑 やめる 権利 戻ってくる 代替要員">
+      <div class="case-head"><span class="case-no">42</span><h3>産休の申請を受ける</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">長く休むより、やめたほうがまわりに迷惑かけないよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">あなたの代わりはどうにかなるから心配しないで。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">承知しました。人員のことは会社で手当てします。戻る日を待っています。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">退職を促す発言は退職勧奨とみなされ、違法な不利益取扱いになる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">取得は権利。人員の手当ては会社の責任である、と言い切る。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="男性 育休 申請 子ども 奥さん パタハラ 育児参加">
+      <div class="case-head"><span class="case-no">43</span><h3>男性から育休の申請があった</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">子どもの世話なんてする暇があったら仕事しろ!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">奥さんも育休とるんでしょ? だったら休み調整してよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">承知しました。期間と引き継ぎの段取りを決めましょう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">配偶者の状況を理由に取得を抑制するのはパタハラ。育休は男女ともに認められた権利。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">確認するのは期間と引き継ぎだけ。理由や家庭の事情は聞かない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="介護 休業 親 面倒 両立 ケアハラ 支援 介護休暇">
+      <div class="case-head"><span class="case-no">44</span><h3>介護休業の申し出を受ける</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">休まれちゃ困るよ。ほかに面倒見てくれる人はいないの?</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">どんな様子なの? 親の面倒も見て大変だな。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">わかりました。介護休業のほかに介護休暇や時短勤務も使えます。組み合わせを一緒に考えましょう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">家族の状況を詮索するより、使える制度を並べるほうが実際に助けになる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">介護休暇・短時間勤務・時間外免除など、使える制度を漏れなく案内する。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="うつ病 休職 甘い 回復 サポート 病気 就業規則 復職">
+      <div class="case-head"><span class="case-no">45</span><h3>うつ病で休職したいと言われた</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">これくらいで休むなんて甘いよ。もう戻ってくるなよ!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">頑張って早く治して帰ってきてね。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">まず治療に専念してください。休職の期間と連絡の取り方は、後日書面で整理して渡します。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「頑張って」は本人をさらに追い込むことがある。回復を急かさないのが原則。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">休職期間・連絡方法・復職の手順を、就業規則に沿って文書で示す。口約束にしない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="時短 責任 仕事 決めつけ できる範囲 相談 キャリア">
+      <div class="case-head"><span class="case-no">46</span><h3>時短勤務者に仕事を頼む</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">時短の人に責任ある仕事は無理だよね。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">どうせ時間的に無理だろうと思ったから、ほかへ回した。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">この案件を任せたい。所定時間で回るように、範囲はこう区切ろうと思う。どうかな。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">本人に確認せず仕事を減らすのは、良かれと思っていても不利益取扱いになり得る。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">任せる仕事の量と締切は、所定時間内で終わる設計にしたうえで、正面から任せる。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="時短 退社時間 帰れる 雰囲気 キリのいいところ 段取り">
+      <div class="case-head"><span class="case-no">47</span><h3>時短勤務者の退社時間が迫る</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">仕事が終わるまで帰るんじゃないぞ!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">時短さーん。そろそろ時間ですよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">（さりげなく）キリのいいところであがってください。続きは明日で大丈夫です。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「時短さん」という呼び方は、制度利用者に区別のレッテルを貼る行為。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">終業間際に新しい仕事を渡さない段取りを、上司側があらかじめ作っておく。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="時短 同僚 不満 制度 支える 理解 業務量 分担">
+      <div class="case-head"><span class="case-no">48</span><h3>時短勤務への同僚の不満</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">グダグダ文句を言うな! こんな制度があるのが悪いんだ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">気持ちはわかるけど、そこはコラえて頑張ってよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">負荷が偏っているのはこちらの設計の問題。来月から分担を組み直します。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">我慢を求めるだけだと、不満は制度利用者本人に向かい、職場のハラスメントに発展する。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">不満は業務量の問題として受け止め、人員・分担の見直しに具体的に着手する。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="ハラスメント 相談 仕事とはそういうもの 窓口 記録 調査">
+      <div class="case-head"><span class="case-no">49</span><h3>ハラスメントの相談を受ける</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">仕事とはそういうものだよ。私の若い頃はもっとひどかった。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">へぇ、そうなんだ。（他人事のような反応）</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">つらい思いをさせてしまいましたね。いつ、何があったのかを聞かせてください。今後どうしたいかも教えてください。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">相談を軽く扱った時点で、会社は「相談に応じる義務」を果たしていないと評価される。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">聞いた内容は記録し、本人の意向を確認したうえで、会社としての調査に必ずつなぐ。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="通報 問題言動 否定 公平 注意 不利益 第三者">
+      <div class="case-head"><span class="case-no">50</span><h3>部下の問題言動を通報された</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">彼のことはよく知ってるけど、そんなことする人じゃない。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">彼について、今までそんな話は聞いたことないなぁ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">教えてくれてありがとう。事実を確認します。あなたが不利益を受けることはありません。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">最初に否定されると、二度目の通報は上がってこない。問題は水面下で深刻化する。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">通報者が不利益を受けないことを約束し、必ずその約束を守る。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="セクハラ 相談 問題 あなたのせい 窓口 相談者 措置義務">
+      <div class="case-head"><span class="case-no">51</span><h3>セクハラの相談を受ける</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">そう言われたのは、あなたにも問題があるんじゃない?</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">あなたのためを思って、ここだけの話にしておくよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">話してくれてありがとう。社内の窓口につなぎます。私から伝えるか、一緒に行くか、選んでください。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「ここだけの話」は、会社が対応しなかった証拠として残る。抱え込みは最大のリスク。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">相談を受けた時点で会社の措置義務が生じる。個人で判断せず、必ず組織に上げる。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="制服 着たくない 相談 女性 理由 言い分 規程">
+      <div class="case-head"><span class="case-no">52</span><h3>制服を着たくないと相談された</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">女性は制服を着るのが当社のきまり。従えないならクビ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">制服を着たくないなら、制服のない部署へ行くしかないね。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">理由を聞かせてもらえますか。そのうえで、規程の趣旨に沿う形で何ができるか検討します。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">解雇や異動をちらつかせる回答は、それ自体がパワハラ。まず理由の聴取から。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">理由を聞いたうえで、規程の目的と代替案を検討し、会社として回答する。放置しない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="LGBT カミングアウト ゲイ レズ 性別 個人の尊厳 SOGIハラ アウティング">
+      <div class="case-head"><span class="case-no">53</span><h3>性的指向をカミングアウトされた</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">えっ、そうだったの! 狙わないでよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">私は気にしないけど、大変そうだね。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">話してくれてありがとう。どこまで、誰に伝えてよいか教えてください。私にできることはありますか。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">本人の同意なく第三者に伝える行為（アウティング）は、指針上もハラスメントに当たる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">共有範囲を本人に確認し、それを絶対に超えない。善意でも勝手に伝えない。</span></p>
+      </div>
+    </article>
+
+  </div>
+  <p class="no-hit" hidden>該当するケースが見つかりませんでした。</p>
+</section>
+<!-- ============ 第5章 ============ -->
+<section class="panel-view" id="p5" role="tabpanel" aria-labelledby="t5" hidden>
+  <div class="lead">
+    <h2>第5章　リモートワーク・メール・SNS</h2>
+    <p>姿が見えないぶん、確認が監視に、指摘が公開処刑になりやすい環境です。見るべきは働いている時間ではなく、出てきた成果物。指導は必ず1対1で。</p>
+  </div>
+  <div class="grid">
+
+    <article class="case" data-k="リモート 進捗確認 サボる 給料泥棒 侮辱 成果物 監視">
+      <div class="case-head"><span class="case-no">54</span><h3>リモート中の進捗を確認する</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">さっきはどこへ行ってたんだ!? まさかサボってないだろうな? 給料泥棒だぞ!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">ちゃんと仕事してる?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">◯◯の件、いまどこまで進んでる? 詰まっていたら言って。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">在席の常時監視や執拗な確認は、リモハラとして問題になる。疑いは相手への侮辱でもある。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">確認は成果物と期限で行う。進捗が遅れているなら、その事実は遠慮なく指摘してよい。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="オンライン 顔 部屋 汚い インテリア プライベート 会議 背景">
+      <div class="case-head"><span class="case-no">55</span><h3>オンラインで顔を合わせる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">汚い部屋だな。だから仕事ができないんだよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">ユニークなインテリアだね。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">みんな揃いましたね。では始めましょう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">画面に映る自宅は私生活そのもの。話題にするだけで「個の侵害」になり得る。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">映り込みが業務上問題なら、背景設定やカメラの扱いを全員共通のルールとして決める。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="会議 返答 黙る わかりにくい 気くばり 指名 発言">
+      <div class="case-head"><span class="case-no">56</span><h3>オンライン会議で返答がない</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">何ぼんやりしてるんだ! だからおまえはダメなんだよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">おーい! 黙っていたらわからないよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">◯◯さん、この点はどう思いますか。わかりにくければ言ってください。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">画面越しの沈黙は、通信不良や発言タイミングの難しさが原因のことが多い。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">発言してほしい場面は、指名と順番で設計する。沈黙を人格の問題にしない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="通話 途切れる 通信 パソコン 個人 責任 環境整備">
+      <div class="case-head"><span class="case-no">57</span><h3>相手の通話が頻繁に途切れる</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">おまえのところいつもだな! なんとかしておけよ!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">パソコン買い換えたら?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">気にしないで。お互い様です。改善が必要なら会社で機器を手配します。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">私物の買い替えを求めるのは、費用負担を個人に押しつける指示になる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">通信環境の整備は会社の課題。必要な機器・手当は会社が用意する前提で話す。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="会議 子ども 騒ぐ うるさい 静か 事情 育児 録画">
+      <div class="case-head"><span class="case-no">58</span><h3>会議中に子どもの声が入る</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">うるさいな、黙らせろよ!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">会議の間だけでも、静かにお願いできない?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">気にしないでください。用事があれば席を外して大丈夫。録画も残します。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">家庭の事情を抑え込ませる要求は、実行不可能なことが多く、育児中の社員を追い詰める。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">必須参加者と録画の有無を先に決め、途中で抜けられる設計にしておく。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="リモート ストレス 甘え みんな 原因 一緒に考える 孤独">
+      <div class="case-head"><span class="case-no">59</span><h3>リモートのストレスを訴えられた</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">みんなやっているんだ! 甘えたこと言うな!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">ストレスなんて、みんな感じてるよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">何がいちばん負担か聞かせてもらえる? 変えられるところから変えよう。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「みんな同じ」は相談を打ち切る言葉。以後、不調のサインは上がってこなくなる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">聞いたら、頻度・時間・業務量のうち変えられる条件を必ず1つは変える。聞くだけで終えない。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="メール 叱咤激励 やる気 共有 名誉毀損 個人メール 期待 CC">
+      <div class="case-head"><span class="case-no">60</span><h3>メールで叱咤激励する</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">（共有メールで）やる気がないなら、会社をやめるべきです。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">（共有メールで）みんなやっているので、あなたもやる気を出してください。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">（個人宛に）今月の◯件について、明日15時に10分だけ時間をください。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">多数の宛先での叱責は名誉毀損と判断された裁判例がある（裁判例タブ FILE 7）。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">指導は1対1で行う。記録が必要なら、本人宛に事実ベースの文面で残す。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="SNS 連絡 ID強要 了解 強制 本人 プライバシー 業務ツール">
+      <div class="case-head"><span class="case-no">61</span><h3>SNSで連絡をとりたい</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">ID教えろ。連絡したらすぐ返事するんだぞ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">うちはSNSでやりとりするのが当たり前だから。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">業務連絡は会社のチャットで統一します。私用のアカウントは不要です。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">私的アカウントの提供を求めるのは「個の侵害」。時間外の即応要求にもつながる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">業務連絡は会社が用意したツールで行う。連絡がつく時間帯のルールもあわせて決める。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="SNS 個人 監視 承認 いいね 遊ぶ 休日 私生活">
+      <div class="case-head"><span class="case-no">62</span><h3>部下の個人SNSを見る</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">おまえ土日いつも遊んでるな。だからダメなんだよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">リクエストするから承認してくれる?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">（見ない。見ても職場では話題にしない。）</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">上司からの申請は断りにくい。「いいね」の強要も含め、私生活への介入になる。</span></p>
+        <p class="line l-core"><span class="lb">指導の芯</span><span class="tx">勤務時間外の私的な行動は、業務に実害がない限り指導の対象にしない。</span></p>
+      </div>
+    </article>
+
+  </div>
+  <p class="no-hit" hidden>該当するケースが見つかりませんでした。</p>
+</section>
+
+<!-- ============ 第6章 ============ -->
+<section class="panel-view" id="p6" role="tabpanel" aria-labelledby="t6" hidden>
+  <div class="lead">
+    <h2>第6章　部下から上司へ（逆ハラスメント・ハラハラ）</h2>
+    <p>ハラスメントは上から下だけではありません。部下からの侮辱や不当な拒否（逆パワハラ）、正当な指導を過剰にハラスメント扱いする行為（ハラハラ）も、職場を壊します。この章は部下側の言い換えです。</p>
+  </div>
+  <div class="grid">
+
+    <article class="case" data-k="PC パソコン 聞かれた 上司 知らない 謙虚 助力 逆パワハラ">
+      <div class="case-head"><span class="case-no">63</span><h3>上司にパソコンの操作を聞かれた</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">こんなことも知らないで、よく部長やってられますね。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">こんなの簡単ですよ。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">私でわかることでしたら、お手伝いします。手順をメモにしておきますね。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">知識差を材料にした見下しは、立場が下でもパワハラ（逆パワハラ）になる。</span></p>
+        <p class="line l-core"><span class="lb">押さえどころ</span><span class="tx">知識の有無で人を評価しない。教えるときは、次に困らないよう手順を残す。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="忙しい 仕事頼まれた 無能 断る 状況説明 優先順位">
+      <div class="case-head"><span class="case-no">64</span><h3>忙しい時に仕事を頼まれた</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">（聞こえるように）チッ! 無能な上司がいると大変だよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">今、忙しいので無理です。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">今はAを16時までに仕上げています。こちらを先にする場合、Aは明日でよいですか?</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「無理です」だけだと拒否に聞こえる。手持ちを開示すれば、調整の話に変わる。</span></p>
+        <p class="line l-core"><span class="lb">押さえどころ</span><span class="tx">断るのではなく、優先順位の判断を上司に返す。抱え込みも過負荷の原因になる。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="資料 ひどい 管理者失格 指摘 丁寧 修正 成果物">
+      <div class="case-head"><span class="case-no">65</span><h3>上司の資料に不備がある</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">こんな資料じゃ使いものになりません。管理者失格ですよ。</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">こんな内容で本当に大丈夫ですか?</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">3ページの数字が前回と違うようです。差し支えなければ直しておきましょうか。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">人格への評価を混ぜると、正しい指摘まで受け入れられなくなる。</span></p>
+        <p class="line l-core"><span class="lb">押さえどころ</span><span class="tx">指摘は「内容」に向ける。気づいたことは、遠慮せず具体的に言ってよい。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="ミス 指摘 修正 パワハラ 正当な指導 謝罪 ハラハラ">
+      <div class="case-head"><span class="case-no">66</span><h3>ミスを指摘され、修正を指示された</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">課長、それってパワハラですよ! 私を脅すんですか?</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">これ、課長に言われたとおりにやったんですけど。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">失礼しました。認識がずれていたようなので、どこを直すか確認させてください。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">正当な指導を「パワハラ」と主張する行為（ハラハラ）は、本当の相談を埋もれさせる。</span></p>
+        <p class="line l-core"><span class="lb">押さえどころ</span><span class="tx">業務上必要な指導は正当な指示。まず内容を確認する。言い方に問題があれば、別途窓口に相談する。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="飲み会 断る 強要 プライベート 苦手 角を立てない">
+      <div class="case-head"><span class="case-no">67</span><h3>上司からの飲み会を断る</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">課長に飲み会を強要された! これパワハラですよね!</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">それって強制参加ですか? プライベートをとられたくないんですけど。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">お誘いありがとうございます。今回は遠慮させてください。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">「誘い」と「強要」は別のもの。一度目の誘いを強要と決めつけると、関係が切れる。</span></p>
+        <p class="line l-core"><span class="lb">押さえどころ</span><span class="tx">断る自由はある。理由を細かく説明する義務もない。断ったあと不利益があれば、そこは記録する。</span></p>
+      </div>
+    </article>
+
+    <article class="case" data-k="妊娠 ハードな仕事 マタハラ 重いもの 医者 できる範囲">
+      <div class="case-head"><span class="case-no">68</span><h3>妊娠中にハードな仕事を頼まれた</h3></div>
+      <div class="case-body">
+        <p class="line l-out"><span class="lb">アウト</span><span class="tx">妊娠中の私にこれをやれと!? これってマタハラですよね?</span></p>
+        <p class="line l-gray"><span class="lb">グレーゾーン</span><span class="tx">妊娠中なので無理です。別の人に頼んでください。</span></p>
+        <p class="line l-safe"><span class="lb">セーフ</span><span class="tx">医師から重いものを持たないよう言われています。運搬以外の部分なら対応できます。</span></p>
+        <p class="line l-point"><span class="lb">なぜ変えるのか</span><span class="tx">制限の根拠を示すと、会社は配置転換などの措置をとりやすくなる。</span></p>
+        <p class="line l-core"><span class="lb">押さえどころ</span><span class="tx">できないことは医師の指示として具体的に伝え、あわせて「できる業務」を示す。</span></p>
+      </div>
+    </article>
+
+  </div>
+  <p class="no-hit" hidden>該当するケースが見つかりませんでした。</p>
+</section>
+
+<!-- ============ 裁判例 ============ -->
+<section class="panel-view" id="p7" role="tabpanel" aria-labelledby="t7" hidden>
+  <div class="lead">
+    <h2>裁判例・労災認定例</h2>
+    <p>実際に司法や労働基準監督署がどう判断したかを見ると、境界線の位置がつかめます。共通しているのは「人格への攻撃」「人前での叱責」「会社が放置したこと」が重く見られている点です。</p>
+  </div>
+  <div class="hgrid">
+
+    <article class="hcase">
+      <div class="hcase-head t-pawa"><span class="hfile">FILE 1</span><h3>職員に対する理事の暴言</h3></div>
+      <div class="hcase-body"><span class="htag">パワハラ</span><br>
+        特別養護老人ホームの理事が職員に対し、「泥棒さん」「おまえは精神障害だな」などと暴言を繰り返した。
+        <span class="res">→ 人格を否定する発言として、慰謝料の支払いが命じられた。</span>
+      </div>
+    </article>
+
+    <article class="hcase">
+      <div class="hcase-head t-pawa"><span class="hfile">FILE 2</span><h3>管理職としての配慮を欠いた言動</h3></div>
+      <div class="hcase-body"><span class="htag">パワハラ</span><br>
+        保険会社で、本人に責任のないトラブルについて上司から「マネージャーをいつ降りてもらっても構わない」と叱責され、うつ病を発症した。
+        <span class="res">→ 違法な言動とされ、慰謝料の支払いが命じられた。</span>
+      </div>
+    </article>
+
+    <article class="hcase">
+      <div class="hcase-head t-pawa"><span class="hfile">FILE 3</span><h3>上司のパワハラで精神障害を発症</h3></div>
+      <div class="hcase-body"><span class="htag">パワハラ</span><br>
+        運送会社で、上司が「こんなこともできないのか」と怒鳴り、蹴るなどのいじめが常態化していた。
+        <span class="res">→ 業務上の心理的負荷が強いとされ、労災と認定された。</span>
+      </div>
+    </article>
+
+    <article class="hcase">
+      <div class="hcase-head t-seku"><span class="hfile">FILE 4</span><h3>市議会議員による「男いらず」発言</h3></div>
+      <div class="hcase-body"><span class="htag">セクハラ</span><br>
+        男性市議が女性市議に対し「男いらずの◯◯さん」と呼びかけ、活動報告書にも記載した。
+        <span class="res">→ 人格権を侵害するセクハラと認定され、慰謝料の支払いが命じられた。</span>
+      </div>
+    </article>
+
+    <article class="hcase">
+      <div class="hcase-head t-seku"><span class="hfile">FILE 5</span><h3>アルバイト女性がうつ病を発症</h3></div>
+      <div class="hcase-body"><span class="htag">セクハラ</span><br>
+        配送会社のセンター長が女性に性的な関係を求め、会社も相談を受けながら対応しなかった。
+        <span class="res">→ 心理的負荷が「強」と評価され、労災と認定された。</span>
+      </div>
+    </article>
+
+    <article class="hcase">
+      <div class="hcase-head t-sogi"><span class="hfile">FILE 6</span><h3>トランスジェンダー職員への対応</h3></div>
+      <div class="hcase-body"><span class="htag">SOGIハラ</span><br>
+        官庁でトランスジェンダーの職員に対し、女性トイレの使用を制限したうえ、上司が「手術しないのであれば男に戻ってはどうか」と発言した。
+        <span class="res">→ 当該発言は違法とされ、国の賠償責任が認められた。</span>
+      </div>
+    </article>
+
+    <article class="hcase">
+      <div class="hcase-head t-pawa"><span class="hfile">FILE 7</span><h3>損害保険会社の叱責メール</h3></div>
+      <div class="hcase-body"><span class="htag">パワハラ</span><br>
+        所長が部下に対し「やる気がないなら会社をやめるべきです」というメールを、数十名が閲覧する宛先で送信した。
+        <span class="res">→ 名誉を毀損し、指導として許容される範囲を超えるとして、慰謝料の支払いが命じられた。</span>
+      </div>
+    </article>
+
+    <article class="hcase">
+      <div class="hcase-head t-gyaku"><span class="hfile">FILE 8</span><h3>地方公務員の逆ハラスメント事案</h3></div>
+      <div class="hcase-body"><span class="htag">逆パワハラ</span><br>
+        異動先の部署で、経験の長い部下から「いいかげんにしろ」と繰り返し罵倒され、うつ病を発症して自死に至った。
+        <span class="res">→ 公務災害（労災）と認定された。</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+</main>
+
+<footer class="foot" lang="ja">
+  <p>本資料は職場での言い換えの目安を示すものです。個別の事案の判断は、事情を確認したうえでご相談ください。</p>
+  <p>LABOR LAW ADVISORY &nbsp;|&nbsp; 土橋社労士事務所</p>
+</footer>
+
+<script>
+(function(){
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel-view'));
+  var input = document.getElementById('q');
+  var counter = document.getElementById('qcount');
+
+  function selectTab(i, focus){
+    btns.forEach(function(b, j){
+      b.setAttribute('aria-selected', j === i ? 'true' : 'false');
+    });
+    panels.forEach(function(p, j){ p.hidden = j !== i; });
+    if (focus) btns[i].focus();
+    window.scrollTo({top: 0, behavior: 'auto'});
+  }
+
+  btns.forEach(function(b, i){
+    b.addEventListener('click', function(){ selectTab(i); });
+    b.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight') { e.preventDefault(); selectTab((i + 1) % btns.length, true); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); selectTab((i - 1 + btns.length) % btns.length, true); }
+    });
+  });
+
+  function filter(){
+    var q = input.value.trim().toLowerCase();
+    var total = 0;
+    panels.forEach(function(panel){
+      var cards = Array.prototype.slice.call(panel.querySelectorAll('.case'));
+      if (!cards.length) return;
+      var shown = 0;
+      cards.forEach(function(card){
+        var hay = ((card.dataset.k || '') + ' ' + card.textContent).toLowerCase();
+        var hit = !q || hay.indexOf(q) !== -1;
+        card.hidden = !hit;
+        if (hit) shown++;
+      });
+      total += shown;
+      var msg = panel.querySelector('.no-hit');
+      if (msg) msg.hidden = !(q && shown === 0);
+    });
+    counter.textContent = q ? '該当 ' + total + '件' : '';
+  }
+
+  input.addEventListener('input', filter);
+  input.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter') return;
+    var q = input.value.trim();
+    if (!q) return;
+    for (var i = 0; i < panels.length; i++){
+      if (panels[i].querySelectorAll('.case:not([hidden])').length){ selectTab(i); break; }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
